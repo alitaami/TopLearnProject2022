@@ -1,0 +1,13 @@
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.DataLayer\bin\Release\netcoreapp3.1\TopLearn.DataLayer.deps.json
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.DataLayer\bin\Release\netcoreapp3.1\TopLearn.DataLayer.runtimeconfig.json
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.DataLayer\bin\Release\netcoreapp3.1\TopLearn.DataLayer.runtimeconfig.dev.json
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.DataLayer\bin\Release\netcoreapp3.1\TopLearn.DataLayer.dll
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.DataLayer\bin\Release\netcoreapp3.1\TopLearn.DataLayer.pdb
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.DataLayer\obj\Release\netcoreapp3.1\TopLearn.DataLayer.csproj.AssemblyReference.cache
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.DataLayer\obj\Release\netcoreapp3.1\TopLearn.DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.DataLayer\obj\Release\netcoreapp3.1\TopLearn.DataLayer.AssemblyInfoInputs.cache
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.DataLayer\obj\Release\netcoreapp3.1\TopLearn.DataLayer.AssemblyInfo.cs
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.DataLayer\obj\Release\netcoreapp3.1\TopLearn.DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.DataLayer\obj\Release\netcoreapp3.1\TopLearn.DataLayer.dll
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.DataLayer\obj\Release\netcoreapp3.1\TopLearn.DataLayer.pdb
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.DataLayer\obj\Release\netcoreapp3.1\TopLearn.DataLayer.genruntimeconfig.cache

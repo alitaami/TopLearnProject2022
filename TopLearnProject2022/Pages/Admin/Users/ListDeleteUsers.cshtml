@@ -1,0 +1,123 @@
+﻿@page
+@model TopLearnProject2022.Pages.Admin.Users.ListDeleteUsersModel
+@{
+}
+
+@{
+    Layout = "_Layout2";
+}
+@using Toplearn.Core.Convertors;
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>قالب مدیریتی Gramos</title>
+
+    <!-- begin::global styles -->
+    <link rel="stylesheet" href="/assets/vendors/bundle.css" type="text/css">
+    <!-- end::global styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/assets/vendors/swiper/swiper.min.css">
+
+    <!-- begin::custom styles -->
+    <link rel="stylesheet" href="/assets/css/app.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/custom.css" type="text/css">
+    <!-- end::custom styles -->
+    <!-- begin::favicon -->
+    <link rel="shortcut icon" href="/assets/media/image/favicon.png">
+    <!-- end::favicon -->
+    <!-- begin::theme color -->
+    <meta name="theme-color" content="#3f51b5" />
+    <!-- end::theme color -->
+
+</head>
+
+<p>لیست کاربران</p>
+<form>
+    <div class="row">
+        <input name="username" type="text" class="form-control col-3" placeholder="نام کاربری" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <div class="col-1"></div>
+        <input name="filteremail" type="text" class="form-control col-3" placeholder="ایمیل" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <div class="col-1"></div>
+        <div>
+            <button type="submit" class="btn btn-primary">جستجو</button>
+            <a asp-page="ListDeleteUsers" style="color:aliceblue;" class="btn btn-primary"> ریست کردن جدول</a>
+
+        </div>
+    </div>
+</form>
+<div class="card-body">
+    <div class="table-responsive" tabindex="1" style="overflow: hidden; outline: none;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">نام کاربری</th>
+                    <th scope="col">ایمیل</th>
+                    <th scope="col"> وضعیت حساب کاربری</th>
+                    <th scope="col">تاریخ ثبت نام</th>
+                    <th scope="col">دستورات</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model.USerForAdminViewModel.Users.Where(i => i.IsDelete == true))
+                {
+
+                    <tr>
+                        <td>@user.UserName</td>
+                        <td>@user.Email</td>
+                        <td>
+                            @if (user.IsActive)
+                            {
+                                <p class="text-success">فعال</p>
+                            }
+                            else
+                            {
+                                <p class="text-danger">غیر فعال</p>
+
+                            }
+                        </td>
+                        <td>@user.RegistersDate.ToShamsi() </td>
+                        <td>
+                            @*<a href="/Admin/Users/EditUser/@user.UserId" style="color:aliceblue;" class="btn btn-warning">ویرایش</a>
+                                <a href="/Admin/Users/DeleteUser/@user.UserId" style="color:aliceblue;" class="btn btn-danger">حذف</a>*@
+
+                        </td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<div class="row">
+    <nav aria-label="..." class="mb-3">
+        <ul class="pagination pagination-sm">
+            @for (int i = 1; i <= Model.USerForAdminViewModel.PageCount; i++)
+            {
+                <li class="page-item @((i==Model.USerForAdminViewModel.CurrentPage)?"active":"")">
+                    <a class="page-link" href="/Admin/Users/ListDeleteUsers?PageId=@i">@i</a>
+                </li>
+            }
+
+
+        </ul>
+    </nav>
+</div>
+
+<script src="/assets/vendors/bundle.js"></script>
+<!-- end::global scripts -->
+<!-- begin::chart -->
+<script src="/assets/vendors/charts/chart.min.js"></script>
+<script src="/assets/vendors/charts/sparkline.min.js"></script>
+<script src="/assets/vendors/circle-progress/circle-progress.min.js"></script>
+<script src="/assets/js/examples/charts.js"></script>
+<!-- end::chart -->
+<!-- begin::swiper -->
+<script src="/assets/vendors/swiper/swiper.min.js"></script>
+<script src="/assets/js/examples/swiper.js"></script>
+<!-- begin::custom scripts -->
+<script src="/assets/js/custom.js"></script>
+<script src="/assets/js/app.js"></script>

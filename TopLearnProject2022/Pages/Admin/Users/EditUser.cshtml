@@ -1,0 +1,154 @@
+﻿@* برای شناسایی آیدی و انتقال به ویرایش باید پارامتر آیدی را جلوی page نوشت *@
+@page  "{id}"
+@model TopLearnProject2022.Pages.Admin.Users.EditUserModel
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout2";
+    List<TopLearn.DataLayer.Entities.User.Role> Roles = ViewData["Roles"] as List<TopLearn.DataLayer.Entities.User.Role>;
+}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>قالب مدیریتی Gramos</title>
+
+    <!-- begin::global styles -->
+    <link rel="stylesheet" href="/assets/vendors/bundle.css" type="text/css">
+    <!-- end::global styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/assets/vendors/swiper/swiper.min.css">
+
+    <!-- begin::custom styles -->
+    <link rel="stylesheet" href="/assets/css/app.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/custom.css" type="text/css">
+    <!-- end::custom styles -->
+    <!-- begin::favicon -->
+    <link rel="shortcut icon" href="/assets/media/image/favicon.png">
+    <!-- end::favicon -->
+    <!-- begin::theme color -->
+    <meta name="theme-color" content="#3f51b5" />
+    <!-- end::theme color -->
+
+</head>
+<body>
+    <!-- begin::page loader-->
+    <div class="page-loader">
+        <div class="spinner-border"></div>
+        <span>در حال بارگذاری ...</span>
+    </div>
+    <!-- end::page loader -->
+    <form method="post" enctype="multipart/form-data">
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">بررسی اجمالی</h5>
+
+                        <input hidden asp-for="EditUserViewModel.UserId" />
+                        <input hidden asp-for="EditUserViewModel.AvatatrName" />
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">آدرس ایمیل</label>
+                            <input type="email" asp-for="EditUserViewModel.Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ایمیل را وارد کنید">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">نام کاربری</label>
+                            <input readonly type="text" asp-for="EditUserViewModel.Username" class="form-control" id="exampleInputEmail1" aria-describedby="textHelp" placeholder="نام کاربری را وارد کنید">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">رمز عبور</label>
+                            <input type="password" asp-for="EditUserViewModel.Password" class="form-control" id="exampleInputPassword1" placeholder="رمز عبور">
+                            <p class="help-block">در صورت وارد کردن کلمه عبور،کلمه عبور کاربر تغییر خواهد کرد</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label>نقش ها</label>
+                            @foreach (var item in Roles)
+                            {
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="SelectedRoles" value="@item.RoleId" @((Model.EditUserViewModel.UserRoles.Any(r => r == item.RoleId) ? "checked" : ""))>@item.RoleTitle
+                                    </label>
+                                </div>
+                            }
+                        </div>
+                        <div class="row">
+                            <button type="submit" class="btn btn-primary">ویرایش اطلاعات</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">ورودی بازه</h5>
+
+                        <div class="form-group">
+                            <img id="imgAvatar" class="img-fluid" src="~/UserAvatar/@Model.EditUserViewModel.AvatatrName" />
+                            <input type="file" id="formControlRange" asp-for="EditUserViewModel.UserAvatar">
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </form>
+    @section Scripts{
+        <script>
+
+            $(document).ready(() => {
+                $('#formControlRange').change(function () {
+                    const file = this.files[0];
+                    console.log(file);
+                    if (file) {
+                        let reader = new FileReader();
+                        reader.onload = function (event) {
+                            console.log(event.target.result);
+                            $('#imgAvatar').attr('src', event.target.result);
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                });
+            });
+
+        </script>
+
+    }
+    <!-- begin::global scripts -->
+    <script src="/assets/vendors/bundle.js"></script>
+    <!-- end::global scripts -->
+    <!-- begin::custom scripts -->
+    <script src="/assets/js/custom.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <!-- end::custom scripts -->
+
+
+</body>
+</html>
+<script src="/assets/vendors/bundle.js"></script>
+<!-- end::global scripts -->
+<!-- begin::chart -->
+<script src="/assets/vendors/charts/chart.min.js"></script>
+<script src="/assets/vendors/charts/sparkline.min.js"></script>
+<script src="/assets/vendors/circle-progress/circle-progress.min.js"></script>
+<script src="/assets/js/examples/charts.js"></script>
+<!-- end::chart -->
+<!-- begin::swiper -->
+<script src="/assets/vendors/swiper/swiper.min.js"></script>
+<script src="/assets/js/examples/swiper.js"></script>
+<!-- begin::custom scripts -->
+<script src="/assets/js/custom.js"></script>
+<script src="/assets/js/app.js"></script>

@@ -1,0 +1,73 @@
+﻿@page
+@model TopLearnProject2022.Pages.Admin.Courses.IndexModel
+@{
+    Layout = "_Layout2";
+}<p>لیست دوره ها</p>
+<form>
+    @*<div class="row">
+            <input name="username" type="text" class="form-control col-3" placeholder="نام کاربری" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="col-1"></div>
+            <input name="filteremail" type="text" class="form-control col-3" placeholder="ایمیل" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="col-1"></div>
+            <div>
+                <button type="submit" class="btn btn-primary">جستجو</button>
+                <a asp-page="Index" style="color:aliceblue;" class="btn btn-primary"> ریست کردن جدول</a>
+
+            </div>
+        </div>*@
+</form>
+<div class="card-body">
+    <div class="table-responsive" tabindex="1" style="overflow: hidden; outline: none;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">تصویر</th>
+                    <th scope="col">عنوان دوره</th>
+                    <th scope="col">تعداد جلسه</th>
+
+                    <th scope="col">دستورات</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var course in Model.ListCourse)
+                {
+
+                    <tr>
+                        <td><img src="/Course/Image/@course.ImageName" class="thumbnail" style="width:120px" /></td>
+                        <td>@course.Title</td>
+                        <td>@course.EpisodeCount</td>
+                        <td>
+                            <a href="/Admin/Courses/EditCourse/@course.CourseId" style="color:aliceblue;" class="btn btn-warning">ویرایش</a>
+                            <a href="/Admin/Courses/IndexEpisode/@course.CourseId" style="color:aliceblue;" class="btn bg-primary"> جلسات</a>
+
+                            <a href="" style="color:aliceblue;" class="btn btn-danger">حذف</a>
+
+                        </td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<script src="/assets/vendors/bundle.js"></script>
+<!-- end::global scripts -->
+<!-- begin::custom scripts -->
+
+
+<script src="/assets/vendors/bundle.js"></script>
+<!-- end::global scripts -->
+<!-- begin::chart -->
+<script src="/assets/vendors/charts/chart.min.js"></script>
+<script src="/assets/vendors/charts/sparkline.min.js"></script>
+<script src="/assets/vendors/circle-progress/circle-progress.min.js"></script>
+<script src="/assets/js/examples/charts.js"></script>
+<!-- end::chart -->
+<!-- begin::swiper -->
+<script src="/assets/vendors/swiper/swiper.min.js"></script>
+<script src="/assets/js/examples/swiper.js"></script>
+<!-- begin::custom scripts -->
+<script src="/assets/js/custom.js"></script>
+<script src="/assets/js/app.js"></script>

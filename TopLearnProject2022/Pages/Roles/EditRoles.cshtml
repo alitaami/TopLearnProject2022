@@ -1,0 +1,151 @@
+﻿ @page  "{id}"
+@model TopLearnProject2022.Pages.Roles.EditRolesModel
+@{
+}
+
+ 
+@{
+    Layout = "_Layout2";
+    List<TopLearn.DataLayer.Entities.Permission.Permission> permissions = ViewData["Permissions"] as List<TopLearn.DataLayer.Entities.Permission.Permission>;
+    List<TopLearn.DataLayer.Entities.User.Role> Roles = ViewData["Roles"] as List<TopLearn.DataLayer.Entities.User.Role>;
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>قالب مدیریتی Gramos</title>
+
+    <!-- begin::global styles -->
+    <link rel="stylesheet" href="/assets/vendors/bundle.css" type="text/css">
+    <!-- end::global styles -->
+    <!-- begin::custom styles -->
+    <link rel="stylesheet" href="/assets/css/app.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/custom.css" type="text/css">
+    <!-- end::custom styles -->
+    <!-- begin::favicon -->
+    <link rel="shortcut icon" href="/assets/media/image/favicon.png">
+    <!-- end::favicon -->
+    <!-- begin::theme color -->
+    <meta name="theme-color" content="#3f51b5" />
+    <!-- end::theme color -->
+
+</head>
+<body>
+    <!-- begin::page loader-->
+    <div class="page-loader">
+        <div class="spinner-border"></div>
+        <span>در حال بارگذاری ...</span>
+    </div>
+    <!-- end::page loader -->
+    <form method="post">
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">   ویرایش نقش @Model.Role.RoleTitle </h5>
+
+                        <input hidden asp-for="Role.RoleId" />
+                        <input hidden asp-for="Role.IsDelete" />
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">عنوان نقش</label>
+                            <input type="text" asp-for="Role.RoleTitle" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="نقش را وارد کنید">
+
+                        </div>
+
+
+                        <div class="row">
+                            <button type="submit" class="btn btn-primary">ویرایش</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">کنترل دسترسی</h5>
+                        <div class="panel-body">
+                            @{
+                                List<int> SelectedPermissions = ViewData["SelectedPermissions"] as List<int>;
+                            }
+                            <ul>
+                                @foreach (var permission in permissions.Where(p => p.ParentID == null))
+                                {
+                                    <li>
+                                        <input type="checkbox" name="SelectedPermission" @((SelectedPermissions.Any(p => p == permission.PermissionId) ? "checked" : "")) value="@permission.PermissionId" /> @permission.PermissionTitle
+
+                                        @if (permissions.Any(p => p.ParentID == permission.ParentID))
+                                        {
+                                            <ul>
+                                                @foreach (var sub in permissions.Where(p => p.ParentID == permission.PermissionId))
+                                                { 
+                                                    <li>
+                                                        <input type="checkbox" @((SelectedPermissions.Any(p => p == sub.PermissionId) ? "checked" : "")) name="SelectedPermission" value="@sub.PermissionId" /> - @sub.PermissionTitle
+                                                        @if (permissions.Any(p => p.ParentID == sub.ParentID))
+                                                        {
+                                                            <ul>
+
+                                                                @foreach (var sub2 in permissions.Where(p => p.ParentID == sub.PermissionId))
+                                                                {
+                                                                    <li>
+                                                                        <input  type="checkbox" @((SelectedPermissions.Any(p => p == sub2.PermissionId) ? "checked" : "")) name="SelectedPermission" value="@sub2.PermissionId" /> -- @sub2.PermissionTitle
+                                                                    </li>
+                                                                }
+                                                            </ul>
+                                                        }
+                                                    </li>
+                                                }
+                                            </ul>
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </form>
+    @section Scripts{
+        <script>
+
+            $(document).ready(() => {
+                $('#formControlRange').change(function () {
+                    const file = this.files[0];
+                    console.log(file);
+                    if (file) {
+                        let reader = new FileReader();
+                        reader.onload = function (event) {
+                            console.log(event.target.result);
+                            $('#imgAvatar').attr('src', event.target.result);
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                });
+            });
+
+        </script>
+
+    }
+    <!-- begin::global scripts -->
+    <script src="/assets/vendors/bundle.js"></script>
+    <!-- end::global scripts -->
+    <!-- begin::custom scripts -->
+    <script src="/assets/js/custom.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <!-- end::custom scripts -->
+
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+﻿@model IEnumerable<TopLearn.DataLayer.Entities.Order.Order>
+@{
+    ViewData["Title"] = "Index";
+
+}
+@using Toplearn.Core.Convertors
+<!-- Main Content -->
+<div class="page-wrapper">
+    <div class="container-fluid">
+
+        <!-- Title -->
+        <div class="row heading-bg">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h5 class="txt-dark"> فاکتورِهای کاربر  : @User.Identity.Name</h5>
+
+
+            </div>
+
+            <!-- Breadcrumb -->
+            @*<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="index.html">داشبورد</a></li>
+                        <li><a href="#"><span>e-commerce</span></a></li>
+                        <li class="active"><span>cart</span></li>
+                    </ol>
+                </div>*@
+            <!-- /Breadcrumb -->
+        </div>
+
+        <!-- Row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default card-view">
+                    <div class="panel-wrapper collapse in">
+                        <div class="panel-body row">
+                            <form id="example-advanced-form" action="#">
+                                <div class="table-wrap">
+                                    <div class="table-responsive">
+                                        <table class="table display product-overview mb-30" id="datable_1">
+                                            <thead>
+                                                <tr>
+                                                    <th>شماره فاکتور</th>
+                                                    <th>تاریخ</th>
+                                                    <th>جمع کل</th>
+                                                    <th>پرداخت شده</th>
+                                                    <th>دستورات</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            @item.OrderId
+                                                        </td>
+                                                        <td class="txt-dark">
+                                                            @item.CreateDate.ToShamsi()
+                                                        </td>
+                                                        <td class="txt-dark">
+                                                            @item.OrderSum.ToString("#,0")
+                                                        </td>
+                                                        <td>
+                                                            @if (item.IsFinaly)
+                                                            {
+                                                                <p class="text-success">پرداخت شده</p>
+                                                            }
+                                                            else
+                                                            {
+
+                                                                <p class="text-danger">پرداخت نشده</p>
+
+
+                                                            }
+                                                        </td>
+
+
+                                                        <td><a class="btn btn-info" href="/UserPanel/MyOrders/ShowOrder/@item.OrderId">نمایش</a></td>
+                                                    </tr>
+
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+
+
+                            
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Row -->
+
+    </div>
+
+    <!-- Footer -->
+    @*<footer class="footer container-fluid pl-30 pr-30">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>ترجمه و راست چینی توسط ملت وب</p>
+                </div>
+            </div>
+        </footer>*@
+    <!-- /Footer -->
+
+</div>
+<!-- /Main Content -->

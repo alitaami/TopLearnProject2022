@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "ActiveAccount";
+}
+
+<div class="container">
+    @if (ViewBag.IsActive )
+    {
+        <div class="alert alert-success">
+            <p style=" color: whitesmoke  ">حساب کاربری شما فعال شد</p>
+            <a style=" color: navy " asp-controller="Account" asp-action="Login">ورود به سایت</a>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-success">
+            <p>حساب کاربری شما فعال نشده است(جهت فعالسازی به ایمیل خود مراجعه کنید)</p>
+
+        </div>
+    }
+
+
+</div>

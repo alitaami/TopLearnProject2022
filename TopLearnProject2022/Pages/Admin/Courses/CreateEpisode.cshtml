@@ -1,0 +1,118 @@
+﻿@page "{id}"
+@model TopLearnProject2022.Pages.Admin.Courses.CreateEpisodeModel
+@{
+    Layout = "_Layout2";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <!-- begin::global styles -->
+    <link rel="stylesheet" href="/assets/vendors/bundle.css" type="text/css">
+    <!-- end::global styles -->
+    <!-- begin::custom styles -->
+    <link rel="stylesheet" href="/assets/css/app.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/custom.css" type="text/css">
+    <!-- end::custom styles -->
+    <!-- begin::favicon -->
+    <link rel="shortcut icon" href="/assets/media/image/favicon.png">
+    <!-- end::favicon -->
+    <!-- begin::theme color -->
+    <meta name="theme-color" content="#3f51b5" />
+    <!-- end::theme color -->
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+</head>
+<body>
+    <!-- begin::page loader-->
+    <div class="page-loader">
+        <div class="spinner-border"></div>
+        <span>در حال بارگذاری ...</span>
+    </div>
+    <!-- end::page loader -->
+    <form method="post" enctype="multipart/form-data">
+        <div class="row">
+
+            <div class="col-md-8">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">افزودن بخش</h5>
+                        <input hidden asp-for="CourseEpisode.CourseId" />
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">عنوان بخش</label>
+                            <input type="text" asp-for="CourseEpisode.EpisodeTitle" class="form-control" id="exampleInputEmail1">
+                            <span asp-validation-for="CourseEpisode.EpisodeTitle"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">زمان بخش</label>
+                            <input type="text" asp-for="CourseEpisode.EpisodeTime" class="form-control" id="exampleInputEmail1">
+                            <span asp-validation-for="CourseEpisode.EpisodeTime"></span>
+                        </div>
+                        <div class="form-group">
+                            @* <label for="exampleInputEmail1">فایل بخش</label>*@
+                            <input type="file" name="fileEpisode" id="demoUp" aria-describedby="emailHelp">
+                            <p class="text-danger">فایل باید وارد شود</p>
+                            @if (ViewData["IsExistFile"] != null)
+                            {
+                                <div class="alert alert-danger">
+                                    نام فایل تکراریست
+                                </div>
+                            }
+                            <span asp-validation-for="CourseEpisode.EpisodeFileName"></span>
+                        </div>
+
+                        <div class="form-group ">
+                            <input type="checkbox" asp-for="CourseEpisode.IsFree" id="gridCheck1">
+                            <label for="exampleCheck1">رایگان است</label>
+                        </div>
+
+                        <div class="row">
+                            <button type="submit" class="btn btn-primary">ثبت</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+    </form>
+
+
+
+
+
+    <!-- begin::global scripts -->
+    <script src="/assets/vendors/bundle.js"></script>
+    <!-- end::global scripts -->
+    <!-- begin::custom scripts -->
+
+
+    <script src="/assets/vendors/bundle.js"></script>
+    <!-- end::global scripts -->
+    <!-- begin::chart -->
+    <script src="/assets/vendors/charts/chart.min.js"></script>
+    <script src="/assets/vendors/charts/sparkline.min.js"></script>
+    <script src="/assets/vendors/circle-progress/circle-progress.min.js"></script>
+    <script src="/assets/js/examples/charts.js"></script>
+    <!-- end::chart -->
+    <!-- begin::swiper -->
+    <script src="/assets/vendors/swiper/swiper.min.js"></script>
+    <script src="/assets/js/examples/swiper.js"></script>
+    <!-- begin::custom scripts -->
+    <script src="/assets/js/custom.js"></script>
+    <script src="/assets/js/app.js"></script>
+
+
+</body>
+</html>

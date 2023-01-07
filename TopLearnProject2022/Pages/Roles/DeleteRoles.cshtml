@@ -1,0 +1,62 @@
+﻿@page "{id}"
+@model TopLearnProject2022.Pages.Roles.DeleteRoleModel
+@{
+    Layout = "_Layout2";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Toplearn.Core.Convertors;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>قالب مدیریتی Gramos</title>
+
+    <!-- begin::global styles -->
+    <link rel="stylesheet" href="/assets/vendors/bundle.css" type="text/css">
+    <!-- end::global styles -->
+    <!-- begin::custom styles -->
+    <link rel="stylesheet" href="/assets/css/app.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/custom.css" type="text/css">
+    <!-- end::custom styles -->
+    <!-- begin::favicon -->
+    <link rel="shortcut icon" href="/assets/media/image/favicon.png">
+    <!-- end::favicon -->
+    <!-- begin::theme color -->
+    <meta name="theme-color" content="#3f51b5" />
+    <!-- end::theme color -->
+
+</head>
+<body>
+    <div class="col-md-12">
+        <div class="card-body">
+            <h5 class="card-title">آیا از حذف نقش "@Model.Role.RoleTitle"  مطمئن هستید؟</h5>
+            <div class="alert alert-warning alert-with-border" role="alert">
+
+                <form method="post">
+                    <input hidden asp-for="@Model.Role.RoleId" />
+                    <input hidden asp-for="@Model.Role.RoleTitle" />
+
+                    @*<div class="row">
+                            <p>عنوان نقش</p>
+                            <p> @Model.Role.RoleTitle </p>
+                        </div>*@
+                    <div class="col-md-3 m-t-b-20">
+                        <button type="submit" class="btn btn-danger">حذف</button>
+                    </div>
+                    <div class="col-md-3 m-t-b-20">
+                        <a style="color:azure" asp-page="Index" class="btn btn-primary">انصراف</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- begin::global scripts -->
+    <script src="/assets/vendors/bundle.js"></script>
+    <!-- end::global scripts -->
+    <!-- begin::custom scripts -->
+    <script src="/assets/js/custom.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <!-- end::custom scripts -->
+
+
+</body>

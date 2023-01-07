@@ -1,0 +1,79 @@
+﻿@page "{id?}"
+@model TopLearnProject2022.Pages.Admin.CourseGroups.EditGroupModel
+
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout2";
+}
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>قالب مدیریتی Gramos</title>
+
+    <!-- begin::global styles -->
+    <link rel="stylesheet" href="/assets/vendors/bundle.css" type="text/css">
+    <!-- end::global styles -->
+    <!-- begin::custom styles -->
+    <link rel="stylesheet" href="/assets/css/app.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/custom.css" type="text/css">
+    <!-- end::custom styles -->
+    <!-- begin::favicon -->
+    <link rel="shortcut icon" href="/assets/media/image/favicon.png">
+    <!-- end::favicon -->
+    <!-- begin::theme color -->
+    <meta name="theme-color" content="#3f51b5" />
+    <!-- end::theme color -->
+
+</head>
+<body>
+    <!-- begin::page loader-->
+    <div class="page-loader">
+        <div class="spinner-border"></div>
+        <span>در حال بارگذاری ...</span>
+    </div>
+    <!-- end::page loader -->
+    <form method="post">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">ویرایش گروه</h5>
+                        <input type="hidden" asp-for="CourseGroups.ParentId" />
+                        <input type="hidden" asp-for="CourseGroups.GroupId" />
+
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">عنوان گروه</label>
+                            <input type="text" asp-for="CourseGroups.GroupTitle" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="گروه را وارد کنید">
+
+                        </div>
+
+
+                        <div class="row">
+                            <button type="submit" class="btn btn-primary">ثبت</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+
+    <!-- begin::global scripts -->
+    <script src="/assets/vendors/bundle.js"></script>
+    <!-- end::global scripts -->
+    <!-- begin::custom scripts -->
+    <script src="/assets/js/custom.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <!-- end::custom scripts -->
+
+
+</body>
+</html>

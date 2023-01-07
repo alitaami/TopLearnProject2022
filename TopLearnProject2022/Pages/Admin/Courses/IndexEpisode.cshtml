@@ -1,0 +1,93 @@
+﻿@page "{id}"
+@model TopLearnProject2022.Pages.Admin.Courses.IndexEpisodeModel
+@{
+    Layout = "_Layout2";
+}<p>لیست جلسات</p>
+<a asp-page="CreateEpisode" asp-route-id="@ViewData["CourseId"].ToString()" style="color:aliceblue;" class="btn btn-primary">افزودن جلسه</a>
+<form>
+    @*<div class="row">
+            <input name="username" type="text" class="form-control col-3" placeholder="نام کاربری" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="col-1"></div>
+            <input name="filteremail" type="text" class="form-control col-3" placeholder="ایمیل" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="col-1"></div>
+            <div>
+                <button type="submit" class="btn btn-primary">جستجو</button>
+                <a asp-page="Index" style="color:aliceblue;" class="btn btn-primary"> ریست کردن جدول</a>
+
+            </div>
+        </div>*@
+</form>
+<div class="card-body">
+    <div class="table-responsive" tabindex="1" style="overflow: hidden; outline: none;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">عنوان بخش</th>
+                    <th scope="col">زمان بخش</th>
+                    <th scope="col">رایگان</th>
+
+                    <th scope="col">دستورات</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in Model.CourseEpisodes)
+                {
+
+                    <tr>
+                        <td>@c.EpisodeTitle</td>
+                        <td>@c.EpisodeTime</td>
+                        <td>
+                            @if (c.IsFree)
+                            {
+                                <span class="bi bi-unlock-fill " style=" font-size: 1.25rem; color: green"> </span>
+                                @*<span class="text-success">
+                                        <i class="glyphicon glyphicon-ok"></i>
+                                    </span>*@
+                            }
+                            else
+                            {
+
+
+                                <span id="boot-icon" class="bi bi-lock" style="font-size: 1.25rem; color: rgb(255, 0, 0);"></span>
+
+
+                                @*<span class="text-danger">
+                                        <i class="glyphicon glyphicon-remove"></i>
+                                    </span> <span class="glyphicon glyphicon-remove   alert-danger">خیر</span>*@
+
+                            }
+                        </td>
+                        <td>
+                            <a href="/Admin/Courses/EditEpisode/@c.EpisodeId" style="color:aliceblue;" class="btn btn-warning">ویرایش</a>
+                            <a href="" style="color:aliceblue;" class="btn btn-danger">حذف</a>
+
+                        </td>
+                    </tr>
+                }
+
+
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<script src="/assets/vendors/bundle.js"></script>
+<!-- end::global scripts -->
+<!-- begin::custom scripts -->
+
+
+<script src="/assets/vendors/bundle.js"></script>
+<!-- end::global scripts -->
+<!-- begin::chart -->
+<script src="/assets/vendors/charts/chart.min.js"></script>
+<script src="/assets/vendors/charts/sparkline.min.js"></script>
+<script src="/assets/vendors/circle-progress/circle-progress.min.js"></script>
+<script src="/assets/js/examples/charts.js"></script>
+<!-- end::chart -->
+<!-- begin::swiper -->
+<script src="/assets/vendors/swiper/swiper.min.js"></script>
+<script src="/assets/js/examples/swiper.js"></script>
+<!-- begin::custom scripts -->
+<script src="/assets/js/custom.js"></script>
+<script src="/assets/js/app.js"></script>

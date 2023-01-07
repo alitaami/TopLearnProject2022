@@ -1,0 +1,52 @@
+﻿
+@model IEnumerable<TopLearn.Core.DTOs.Course.ShowCourseListViewModel>
+@{
+    ViewData["Title"] = "خانه";
+    Layout = "_Layout";
+}
+<div class="row">
+    <form method="get" action="/Course">
+        <div class="col-md-4 col-sm-12 col-xs-12 pull-left">
+            <div class="input-group " style="margin-bottom: 20px; margin-top: 20px; margin-right: 10px;">
+
+                <input type="text" name="filter" class="form-control" placeholder="جستجو">
+                <span class="input-group-btn">
+                    <button type="button" class="btn  btn-default" data-target="#search_form" data-toggle="collapse" aria-label="Close" aria-expanded="true"><i class="zmdi zmdi-search"></i></button>
+                </span>
+
+            </div>
+        </div>
+    </form>
+</div>
+ 
+@{
+    List<TopLearn.Core.DTOs.Course.ShowCourseListViewModel> pop = ViewBag.Popularcourse as List<TopLearn.Core.DTOs.Course.ShowCourseListViewModel>;
+
+}
+
+<h6 style="margin-bottom:20px;">  آخرین دوره های تاپ لرن </h6>
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <partial name="_BoxCourse" model="@item" />
+
+
+    }
+</div>
+ 
+    <h6 style="margin-bottom:20px;">   دوره های محبوب تاپ لرن   </h6>
+ 
+<div>
+    @if (pop != null)
+    {
+
+        @foreach (var item in pop)
+        {
+
+            <partial name="_BoxCourse" model="@item" />
+
+
+        }
+    }
+</div>

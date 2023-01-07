@@ -1,0 +1,215 @@
+﻿@page
+@model TopLearnProject2022.Pages.Admin.Courses.CreateCourseModel
+@{
+    Layout = "_Layout2";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <!-- begin::global styles -->
+    <link rel="stylesheet" href="/assets/vendors/bundle.css" type="text/css">
+    <!-- end::global styles -->
+    <!-- begin::custom styles -->
+    <link rel="stylesheet" href="/assets/css/app.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/custom.css" type="text/css">
+    <!-- end::custom styles -->
+    <!-- begin::favicon -->
+    <link rel="shortcut icon" href="/assets/media/image/favicon.png">
+    <!-- end::favicon -->
+    <!-- begin::theme color -->
+    <meta name="theme-color" content="#3f51b5" />
+    <!-- end::theme color -->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/js/jquery.unobtrusive-ajax.min.js"></script>
+
+</head>
+<body>
+    <!-- begin::page loader-->
+    <div class="page-loader">
+        <div class="spinner-border"></div>
+        <span>در حال بارگذاری ...</span>
+    </div>
+    <!-- end::page loader -->
+    <form method="post" enctype="multipart/form-data">
+        <div class="row">
+
+            <div class="col-md-8">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">افزودن دوره</h5>
+
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">عنوان دوره</label>
+                            <input type="text" asp-for="Course.CourseTitle" class="form-control" id="exampleInputEmail1">
+                            <span asp-validation-for="Course.CourseTitle"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">گروه اصلی</label>
+                            <select class="custom-select mb-3" id="Course_GroupId" asp-for="Course.GroupId" asp-items="@(ViewData["Groups"] as SelectList)">
+                            </select>
+                            <span asp-validation-for="Course.GroupId"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">گروه فرعی</label>
+                            <select class="custom-select mb-3" id="Course_SubGroup" asp-for="Course.SubGroup" asp-items="@(ViewData["SubGroups"] as SelectList)">
+                            </select>
+                            <span asp-validation-for="Course.SubGroup"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">مدرس</label>
+                            <select class="custom-select mb-3" asp-for="Course.TeacherId" asp-items="@(ViewData["Teachers"] as SelectList)">
+                            </select>
+                            <span asp-validation-for="Course.TeacherId"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">قیمت</label>
+                            <input type="number" asp-for="Course.CoursePrice" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="0" placeholder="قیمت">
+                            <span asp-validation-for="Course.CoursePrice"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">شرح</label>
+                            <textarea class="form-control" asp-for="Course.CourseDescription">
+                            </textarea>
+                            <span asp-validation-for="Course.CourseDescription"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">کلمات کلیدی</label> <span style="color:red; margin:10px;" > ضروری</span>
+                            <input type="text" asp-for="Course.Tags" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <p class="help-block"> کلمات را با - جدا کنید </p>
+                            <span asp-validation-for="Course.Tags"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"></label>
+                            <input type="file" name="demoUp" id="demoUp" aria-describedby="emailHelp">
+
+                            <span asp-validation-for="Course.DemoFileName"></span>
+                        </div>                    
+                        <p class="help-block">فایل اینترو را وارد کنید</p>
+
+                        <div class="row">
+                            <button type="submit" class="btn btn-primary">ثبت</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+
+                <div class="card">
+                    <div class="card-body">
+
+
+                        <div class="form-group">
+                            <img id="imgAvatar" name="imgAvatar" class="img-fluid" src="~/UserAvatar/defaultavatar.jpg" />
+                            <input accept="image/jpeg" type="file" id="imgCourseUp" name="imgCourseUp">
+                        </div>
+                        <p class="help-block">عکس دوره را انتخاب کنید</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">وضعیت دوره</label>
+                    <select class="custom-select mb-3" asp-for="Course.LevelId" asp-items="@(ViewData["Levels"] as SelectList)">
+                    </select>
+                    <span asp-validation-for="Course.LevelId"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">سطح دوره</label>
+                    <select class="custom-select mb-3" asp-for="Course.StatusId" asp-items="@(ViewData["Statues"] as SelectList)">
+                    </select>
+                    <span asp-validation-for="Course.StatusId"></span>
+                </div>
+
+            </div>
+
+
+        </div>
+    </form>
+    @section scripts{
+
+
+
+        <script>
+
+            $("#Course_GroupId").change(function () {
+                $("#Course_SubGroup").empty();
+                $.getJSON("/Home/GetSubGroups/" + $("#Course_GroupId : selected").val(),
+                    function (data) {
+
+                        $.each(data,
+                            function () {
+
+                                $("#Course_SubGroup").append('<option value=' + this.value + '>' + this.text + '</option>');
+                            })
+                    }
+                );
+
+
+
+
+                function readURL(input) {
+
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('#imgAvatar').attr('src', e.target.result);
+                        }
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+
+                $("#imgCourseUp").change(function () {
+                    readURL(this);
+                });
+
+        </script>
+
+
+    }
+
+    <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+
+    <script>
+
+            CKEDITOR.replace('Course_CourseDescription', {
+                customConfig: '/js/Config.js'
+            });
+
+    </script>
+
+
+
+    <!-- begin::global scripts -->
+    <script src="/assets/vendors/bundle.js"></script>
+    <!-- end::global scripts -->
+    <!-- begin::custom scripts -->
+
+    <script src="/assets/vendors/bundle.js"></script>
+    <!-- end::global scripts -->
+    <!-- begin::chart -->
+    <script src="/assets/vendors/charts/chart.min.js"></script>
+    <script src="/assets/vendors/charts/sparkline.min.js"></script>
+    <script src="/assets/vendors/circle-progress/circle-progress.min.js"></script>
+    <script src="/assets/js/examples/charts.js"></script>
+    <!-- end::chart -->
+    <!-- begin::swiper -->
+    <script src="/assets/vendors/swiper/swiper.min.js"></script>
+    <script src="/assets/js/examples/swiper.js"></script>
+    <!-- begin::custom scripts -->
+    <script src="/assets/js/custom.js"></script>
+    <script src="/assets/js/app.js"></script>
+
+
+</body>
+</html>

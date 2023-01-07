@@ -1,0 +1,32 @@
+﻿@model Tuple<List<TopLearn.DataLayer.Entities.Course.CourseComment>, int>
+@using Toplearn.Core.Convertors;
+
+@{
+
+    Layout = null;
+}
+
+@foreach (var item in Model.Item1)
+{<div class="chat-data">
+    <img class="user-img img-circle" src="/UserAvatar/@item.User.UserAvatar" style="margin-top:5px; width:50px" alt="@item.User.UserName">
+    <div class="user-data">
+        <span class="name block capitalize-font txt-dark " style="font-size:18px; font-weight:bold">    @item.User.UserName  </span> @item.CreateDate.ToShamsi()
+        <span class="time block truncate txt-dark" style="margin-bottom:10px;">@item.Comment</span>
+    </div>
+    <div class="status away"></div>
+    <div class="clearfix"></div>
+</div>
+    <!-- row -->
+    
+    <!-- /row -->
+}
+
+<div class="col-sm-12 mt-15" style=" justify-content:center;  align-content:center; align-items:center; text-align:center; ">
+    <div class="btn-group" style="">
+        @for (int j=1; j <= Model.Item2; j++)
+        {
+            <a class="btn btn-default btn-outline" onclick="pageComment(@j)">@j</a>
+
+        }
+    </div>
+</div>

@@ -1,0 +1,354 @@
+﻿@model TopLearn.Core.DTOs.InformationUserViewModel
+@using Toplearn.Core.Convertors;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using TopLearn.Core.Services.Interfaces
+@inject IUserService _UserService
+@{
+    var user = _UserService.GetDataForEdit(User.Identity.Name);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Philbert I Fast build Admin dashboard for any platform</title>
+    <meta name="description" content="Philbert is a داشبورد & Admin Site Responsive Template by hencework." />
+    <meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Philbert Admin, Philbertadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
+    <meta name="author" content="hencework" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Morris Charts CSS -->
+    <link href="/vendors/bower_components/morris.js/morris.css" rel="stylesheet" type="text/css" />
+
+    <!-- vector map CSS -->
+    <link href="/vendors/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" type="text/css" />
+
+    <!-- Calendar CSS -->
+    <link href="/vendors/bower_components/fullcalendar/dist/fullcalendar.css" rel="stylesheet" type="text/css" />
+
+    <!-- Data table CSS -->
+    <link href="/vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom CSS -->
+    <link href="/dist/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- Right Sidebar Backdrop -->
+    <div class="right-sidebar-backdrop"></div>
+    <!-- /Right Sidebar Backdrop -->
+    <!-- Main Content -->
+
+    <div class="container-fluid pt-25">
+
+        <!-- Row -->
+        <div class="row">
+            <div class="col-lg-3 col-xs-12">
+                <div class="panel panel-default card-view  pa-0">
+                    <div class="panel-wrapper collapse in">
+                        <div class="panel-body  pa-0">
+                            <div class="profile-box">
+                                <img src="/UserAvatar/@user.AvatarName" class="img-responsive" alt="Product Image">
+                                <div class="profile-info text-center">
+                                    <h5 class="block mt-10 mb-5 weight-500 capitalize-font  " style="color:midnightblue">@Model.UserName : نام کاربری</h5>
+                                </div>
+                                <div class="social-info">
+                                    <a asp-area="UserPanel" asp-controller="Home" asp-action="Index" class="btn btn-default btn-block btn-outline btn-anim mt-15"><i class="fa fa-pencil"></i><span class="btn-text">پنل حساب کاربری</span></a>
+                                    <a asp-area="UserPanel" asp-controller="Home" asp-action="ChangePassword" class="btn btn-default btn-block btn-outline btn-anim mt-15"><i class="fa fa-pencil"></i><span class="btn-text">ویرایش رمز کاربری</span></a>
+                                    <a asp-area="UserPanel" asp-controller="Home" asp-action="EditProfile" class="btn btn-default btn-block btn-outline btn-anim mt-15"><i class="fa fa-pencil"></i><span class="btn-text">ویرایش اطلاعات</span></a>
+                                    <a asp-area="UserPanel" asp-controller="Wallet" asp-action="Index" class="btn btn-default btn-block btn-outline btn-anim mt-15"><i class="fa fa-pencil"></i><span class="btn-text">افزایش موجودی کیف پول</span></a>
+                                    <a href="/UserPanel/MyOrders"  class="btn btn-default btn-block btn-outline btn-anim mt-15"><i class="fa fa-pencil"></i><span class="btn-text">فاکتورها </span></a>
+                                    <div id="myModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    <h5 class="modal-title" id="myModalLabel">Edit پروفایل</h5>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <!-- Row -->
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-success waves-effect" data-dismiss="modal">Save</button>
+                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 col-xs-12">
+                <div class="panel panel-default card-view pa-0">
+                    <div class="panel-wrapper collapse in">
+                        <div class="panel-body pb-0">
+                            <div class="tab-struct custom-tab-1">
+                                <ul role="tablist" class="nav nav-tabs nav-tabs-responsive" id="myTabs_8">
+                                    @*<li class="active" role="presentation"><a data-toggle="tab" id="profile_tab_8" role="tab" href="#profile_8" aria-expanded="false"><span>profile</span></a></li>
+                                        <li role="presentation" class="next"><a aria-expanded="true" data-toggle="tab" role="tab" id="follo_tab_8" href="#follo_8"><span>followers<span class="inline-block">(246)</span></span></a></li>
+                                        <li role="presentation" class=""><a data-toggle="tab" id="photos_tab_8" role="tab" href="#photos_8" aria-expanded="false"><span>photos</span></a></li>
+                                        <li role="presentation" class=""><a data-toggle="tab" id="earning_tab_8" role="tab" href="#earnings_8" aria-expanded="false"><span>earnings</span></a></li>*@
+                                    <li role="presentation" class=""><a data-toggle="tab" id="settings_tab_8" role="tab" href="#settings_8" aria-expanded="false"><span>اطلاعات کاربر</span></a></li>
+                                    @*<li class="dropdown" role="presentation">
+                                            <a data-toggle="dropdown" class="dropdown-toggle" id="myTabDrop_7" href="#" aria-expanded="false"><span>More</span> <span class="caret"></span></a>
+                                            <ul id="myTabDrop_7_contents" class="dropdown-menu">
+                                                <li class=""><a data-toggle="tab" id="dropdown_13_tab" role="tab" href="#dropdown_13" aria-expanded="true">About</a></li>
+                                                <li class=""><a data-toggle="tab" id="dropdown_14_tab" role="tab" href="#dropdown_14" aria-expanded="false">Followings</a></li>
+                                                <li class=""><a data-toggle="tab" id="dropdown_15_tab" role="tab" href="#dropdown_15" aria-expanded="false">Likes</a></li>
+                                                <li class=""><a data-toggle="tab" id="dropdown_16_tab" role="tab" href="#dropdown_16" aria-expanded="false">Reviews</a></li>
+                                            </ul>
+                                        </li>*@
+                                </ul>
+                                <div class="tab-content" id="myTabContent_8">
+                                    <div id="profile_8" class="tab-pane fade active in" role="tabpanel">
+                                        <div class="col-md-12">
+                                            <div class="pt-20">
+                                                @*<div class="streamline user-activity">
+                                                        <div class="sl-item">
+                                                            <a href="javascript:void(0)">
+                                                                <div class="sl-avatar avatar avatar-sm avatar-circle">
+                                                                    <img class="img-responsive img-circle" src="dist/img/user.png" alt="avatar" />
+                                                                </div>
+                                                                <div class="sl-content">
+                                                                    <p class="inline-block"><span class="capitalize-font txt-success mr-5 weight-500">امین صفرپور</span><span>invited to join the meeting in the conference room at 9.45 am</span></p>
+                                                                    <span class="block txt-grey font-12 capitalize-font">3 Min</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="sl-item">
+                                                            <a href="javascript:void(0)">
+                                                                <div class="sl-avatar avatar avatar-sm avatar-circle">
+                                                                    <img class="img-responsive img-circle" src="dist/img/user1.png" alt="avatar" />
+                                                                </div>
+                                                                <div class="sl-content">
+                                                                    <p class="inline-block"><span class="capitalize-font txt-success mr-5 weight-500">امین صفرپور</span><span>added three new photos in the library</span></p>
+                                                                    <div class="activity-thumbnail">
+                                                                        <img src="dist/img/thumb-1.jpg" alt="thumbnail" />
+                                                                        <img src="dist/img/thumb-2.jpg" alt="thumbnail" />
+                                                                        <img src="dist/img/thumb-3.jpg" alt="thumbnail" />
+                                                                    </div>
+                                                                    <span class="block txt-grey font-12 capitalize-font">8 Min</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="sl-item">
+                                                            <a href="javascript:void(0)">
+                                                                <div class="sl-avatar avatar avatar-sm avatar-circle">
+                                                                    <img class="img-responsive img-circle" src="dist/img/user2.png" alt="avatar" />
+                                                                </div>
+                                                                <div class="sl-content">
+                                                                    <p class="inline-block"><span class="capitalize-font txt-success mr-5 weight-500">madalyn rascon</span><span>assigned a new task</span></p>
+                                                                    <span class="block txt-grey font-12 capitalize-font">28 Min</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="sl-item">
+                                                            <a href="javascript:void(0)">
+                                                                <div class="sl-avatar avatar avatar-sm avatar-circle">
+                                                                    <img class="img-responsive img-circle" src="dist/img/user3.png" alt="avatar" />
+                                                                </div>
+                                                                <div class="sl-content">
+                                                                    <p class="inline-block"><span class="capitalize-font txt-success mr-5 weight-500">امین صفرپور</span><span>completed project wireframes</span></p>
+                                                                    <span class="block txt-grey font-12 capitalize-font">yesterday</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="sl-item">
+                                                            <a href="javascript:void(0)">
+                                                                <div class="sl-avatar avatar avatar-sm avatar-circle">
+                                                                    <img class="img-responsive img-circle" src="dist/img/user4.png" alt="avatar" />
+                                                                </div>
+                                                                <div class="sl-content">
+                                                                    <p class="inline-block"><span class="capitalize-font txt-success mr-5 weight-500">jonnie metoyer</span><span>created a group 'ملت وب' in the discussion forum</span></p>
+                                                                    <span class="block txt-grey font-12 capitalize-font">18 feb</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>*@
+                                            </div>
+                                        </div>
+                                    </div>
+ 
+                             
+                                 
+                                    @*<div id="settings_8" class="tab-pane fade" role="tabpanel">*@
+                                    <!-- Row -->
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="">
+                                                <div class="panel-wrapper collapse in">
+                                                    <div class="panel-body pa-0">
+                                                        <div class="col-sm-12 col-xs-12">
+                                                            <div class="form-wrap">
+                                                                <form action="#">
+                                                                    <div class="form-body overflow-hide">
+                                                                        <div class="form-group">
+                                                                            <label class="control-label mb-10" for="exampleInputuname_01">نام کاربری</label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-addon"><i class="icon-user"></i></div>
+                                                                                <input type="text" readonly class="form-control" id="exampleInputuname_01" placeholder="@Model.UserName">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label mb-10" for="exampleInputEmail_01">ایمیل</label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-addon"><i class="icon-envelope-open"></i></div>
+                                                                                <input type="email" readonly class="form-control" id="exampleInputEmail_01" placeholder="@Model.Email">
+                                                                            </div>
+                                                                        </div>
+                                                                        @*<div class="form-group">
+                                                                                <label class="control-label mb-10" for="exampleInputContact_01">Contact number</label>
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-addon"><i class="icon-phone"></i></div>
+                                                                                    <input type="email" class="form-control" id="exampleInputContact_01" placeholder="+102 9388333">
+                                                                                </div>
+                                                                            </div>*@
+                                                                        <div class="form-group">
+                                                                            <label class="control-label mb-10" for="exampleInputpwd_01">تاریخ ثبت نام</label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-addon"><i class="icon-calender"></i></div>
+                                                                                <input type="text" readonly class="form-control" id="exampleInputpwd_01" placeholder="@Model.RegisterDate.ToShamsi()">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label mb-10" for="exampleInputContact_01"> موجودی کیف پول (تومان)</label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-addon"><i class="icon-wallet"></i></div>
+                                                                                <input type="text" readonly class="form-control" id="exampleInputContact_01" placeholder="@Model.Wallet">
+                                                                            </div>
+                                                                        </div>
+                                                                        @*<div class="form-group">
+                                                                                <label class="control-label mb-10">Gender</label>
+                                                                                <div>
+                                                                                    <div class="radio">
+                                                                                        <input type="radio" name="radio1" id="radio_01" value="option1" checked="">
+                                                                                        <label for="radio_01">
+                                                                                            M
+                                                                                        </label>
+                                                                                    </div>
+                                                                                    <div class="radio">
+                                                                                        <input type="radio" name="radio1" id="radio_02" value="option2">
+                                                                                        <label for="radio_02">
+                                                                                            F
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>*@
+                                                                        @*<div class="form-group">
+                                                                                <label class="control-label mb-10">Country</label>
+                                                                                <select class="form-control" data-placeholder="Choose a Category" tabindex="1">
+                                                                                    <option value="Category 1">USA</option>
+                                                                                    <option value="Category 2">Austrailia</option>
+                                                                                    <option value="Category 3">India</option>
+                                                                                    <option value="Category 4">UK</option>
+                                                                                </select>
+                                                                            </div>*@
+                                                                    </div>
+                                                                    @*<div class="form-actions mt-10">
+                                                                            <button type="submit" class="btn btn-success mr-10 mb-30">Update profile</button>
+                                                                        </div>*@
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    </div>
+
+    <!-- /Main Content -->
+    <!-- jQuery -->
+    <script src="/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Vector Maps JavaScript -->
+    <script src="/vendors/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="/vendors/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/dist/js/vectormap-data.js"></script>
+
+    <!-- Calender JavaScripts -->
+    <script src="/vendors/bower_components/moment/min/moment.min.js"></script>
+    <script src="/vendors/jquery-ui.min.js"></script>
+    <script src="/vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="/dist/js/fullcalendar-data.js"></script>
+
+    <!-- Counter Animation JavaScript -->
+    <script src="/vendors/bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="/vendors/bower_components/jquery.counterup/jquery.counterup.min.js"></script>
+
+    <!-- Data table JavaScript -->
+    <script src="/vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+
+    <!-- Slimscroll JavaScript -->
+    <script src="/dist/js/jquery.slimscroll.js"></script>
+
+    <!-- Fancy Dropdown JS -->
+    <script src="/dist/js/dropdown-bootstrap-extended.js"></script>
+
+    <!-- Sparkline JavaScript -->
+    <script src="/vendors/jquery.sparkline/dist/jquery.sparkline.min.js"></script>
+
+    <script src="/vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+    <script src="/dist/js/skills-counter-data.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="/vendors/bower_components/raphael/raphael.min.js"></script>
+    <script src="/vendors/bower_components/morris.js/morris.min.js"></script>
+    <script src="/dist/js/morris-data.js"></script>
+
+    <!-- Owl JavaScript -->
+    <script src="/vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+
+    <!-- Switchery JavaScript -->
+    <script src="/vendors/bower_components/switchery/dist/switchery.min.js"></script>
+
+    <!-- Data table JavaScript -->
+    <script src="/vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+
+    <!-- Gallery JavaScript -->
+    <script src="/dist/js/isotope.js"></script>
+    <script src="/dist/js/lightgallery-all.js"></script>
+    <script src="/dist/js/froogaloop2.min.js"></script>
+    <script src="/dist/js/gallery-data.js"></script>
+
+    <!-- twitter JavaScript -->
+    <script src="/dist/js/twitterFetcher.js"></script>
+
+    <!-- Spectragram JavaScript -->
+    <script src="/dist/js/spectragram.min.js"></script>
+
+    <!-- Init JavaScript -->
+    <script src="/dist/js/init.js"></script>
+    <script src="/dist/js/widgets-data.js"></script>
+
+</body>
+
+</html>

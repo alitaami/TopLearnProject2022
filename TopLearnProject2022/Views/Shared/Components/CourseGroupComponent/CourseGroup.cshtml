@@ -1,0 +1,104 @@
+﻿@model IEnumerable<TopLearn.DataLayer.Entities.Course.CourseGroup>
+<div class="fixed-sidebar-left ">
+    <ul class="nav navbar-nav side-nav nicescroll-bar">
+        <li class="navigation-header">
+            @*<span>اصلی</span>*@
+            <i class="zmdi zmdi-more"></i>
+        </li>
+        <li>
+            <a class="active" href="javascript:void(0);" style="color:white;" data-toggle="collapse" data-target="#dashboard_dr"><div class="pull-left"><i class="zmdi zmdi-account mr-20"></i><span class="right-nav-text">کاربران</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+            <ul id="dashboard_dr" class="collapse collapse-level-1">
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <li>
+                        <a asp-controller="Account" asp-action="Register">ثبت نام</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Account" asp-action="Login">ورود</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+
+                        <a href="/admin/">پنل ادمین</a>
+                    </li>
+                }
+            </ul>
+        </li>
+
+
+        @*<li>
+
+            <a href="javascript:void(0);" ><div class="pull-left"><i class=" ti-bag mr-20"></i><span class="right-nav-text">محصولات</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+            <ul >
+
+
+                @foreach (var group in Model.Where(g => g.ParentId == null))
+                {
+                    <li>
+                        <a href="" style="color:red;"> --  @group.GroupTitle --  </a>
+                        @if (Model.Any(g => g.ParentId == group.GroupId))
+                        {
+
+                            <ul >
+                                @foreach (var sub in Model.Where(g => g.ParentId == group.GroupId))
+                                {
+                                    <li>
+                                        <a href="">@sub.GroupTitle</a>
+                                    </li>
+                                }
+                            </ul>
+
+                        }
+                    </li>
+
+                }
+            </ul>
+
+
+        </li>*@
+        <li>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#ui_dr"><div class="pull-left"><i class=" ti-bag mr-20"></i><span class="right-nav-text">محصولات</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+            <ul id="ui_dr" class="collapse collapse-level-1 two-col-list">
+                <li>
+                    <a href="/Course">محصولات مجموعه</a>
+                </li>
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#app_dr"><div class="pull-left"><i class="ti-themify-favicon-alt mr-20"></i><span class="right-nav-text">ارتباط با ما </span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+            <ul id="app_dr" class="collapse collapse-level-1">
+                <li>
+                    <a href="https://chat.whatsapp.com/Cdfhyp9T3EB0t1hc3SmByY">واتس آپ</a>
+                </li>
+                <li>
+                    <a href="https://t.me/+PkEAA6J5ro0yMDI5">تلگرام</a>
+                </li>
+                <li>
+                    <a href=" https://instagram.com/alitaami81?utm_medium=copy_link">اینستاگرام</a>
+                </li>
+
+          </ul>
+        </li>
+        @*<li>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#ui_dr"><div class="pull-left"><i class=" ti-themify-favicon-alt mr-20"></i><span class="right-nav-text">ارتباط با ما</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+            <ul id="ui_dr" class="collapse collapse-level-1 two-col-list">
+                <li>
+                    <a href="https://chat.whatsapp.com/Cdfhyp9T3EB0t1hc3SmByY">واتس آپ</a>
+                </li>
+                <li>
+                    <a href="https://t.me/+PkEAA6J5ro0yMDI5">تلگرام</a>
+                </li>
+                <li>
+                    <a href=" https://instagram.com/alitaamii?utm_medium=copy_link">اینستاگرام</a>
+                </li>
+
+            </ul>
+        </li>*@
+
+
+
+    </ul>
+</div>

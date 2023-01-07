@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "onlinePayment";
+    Layout = "_Layout";
+}
+
+
+<div class="container">
+    @if (ViewBag.IsSuccess == true)
+    {
+        <div class="alert alert-success alert-dismissable alert-style-1">
+            <a href="/home" class="close" data-dismiss="alert" aria-hidden="true">×</a>
+            <i class="zmdi zmdi-check"></i>پرداخت با موفقیت انجام شد
+            <p>کد پیگیری : @ViewBag.Code</p>
+        </div>
+
+    }
+
+    else
+    {
+        <div class="alert alert-danger alert-dismissable alert-style-1">
+            <a  href="/home" class="close" data-dismiss="alert" aria-hidden="true">×</a>
+            <i class="zmdi zmdi-block"></i>پرداخت با شکست مواجه شد
+        </div>
+
+    }
+
+</div>

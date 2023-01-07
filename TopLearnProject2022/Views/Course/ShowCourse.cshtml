@@ -1,0 +1,346 @@
+﻿@model TopLearn.DataLayer.Entities.Course.Course
+@using Toplearn.Core.Convertors;
+@using TopLearn.Core.Services.Interfaces;
+@inject IOrderService _order;
+@inject ICourseService _course;
+@{
+
+    Layout = "_Layout";
+    ViewData["Title"] = Model.CourseTitle;
+    bool UserHaveCourse = false;
+    int NumberofComments;
+    if (User.Identity.IsAuthenticated)
+    {
+
+        UserHaveCourse = _order.IsUserHaveCourse(User.Identity.Name, Model.CourseId);
+    }
+    NumberofComments = _course.CountOfComments(Model.CourseId);
+}
+
+@section MetaTag{
+
+    <meta name=googlebot content=index,follow>
+    <meta name=robots content=noodp,noydir>
+@*باید حداقل 200 کاراکتر باشد*@
+    <meta name=description content="شرح صفحه">
+    <meta property=og:site_name value="خودآموزش تاپ لرن">
+    <meta property=og:title content="@Model.CourseTitle">
+    <meta property=og:url content="https://toplearn.com/ShowCourse/@Model.CourseTitle" />
+    <meta property=og:image content="/course/image/@Model.CourseImageName">
+    <meta property=og:image:url content="/course/image/@Model.CourseImageName" />
+    <meta property=og:image:width content="700">
+
+    <meta property=og:image:type content="image/jpg">
+    <meta property=og:description content="">
+    <meta property=og:price:currency content="IRR">
+    <meta property=og:locale content="ir_FA">
+}
+<!--Preloader-->
+<div class="preloader-it">
+    <div class="la-anim-1"></div>
+</div>
+<!--/Preloader-->
+<!-- Top Menu Items -->
+<!-- /Right Sidebar Backdrop -->
+<!-- Main Content -->
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <!-- Title -->
+        <div class="row heading-bg">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <p class="txt-dark" style="font-size:16px;"> جزئیات  " @Model.CourseTitle "</p>
+            </div>
+            <!-- Breadcrumb -->
+            @*<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">  صفحه اصلی > </a></li>
+                        <li><a href="index.html">  صفحه اصلی  </a></li>
+
+                    </ul>
+                </div>*@
+            <!-- /Breadcrumb -->
+
+        </div>
+        <!-- /Title -->
+        <!-- Row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default card-view">
+                    <div class="panel-wrapper collapse in">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="item-big">
+                                        <!-- START carousel-->
+                                        <div id="carousel-example-captions-1" data-ride="carousel" class="carousel slide">
+                                            <ol class="carousel-indicators">
+
+                                                @*<li data-target="#carousel-example-captions-1" data-slide-to="1"></li>*@
+                                            </ol>
+                                            <div class="carousel-inner">
+                                                <div class="item active"> <img src="/Course/Image/@Model.CourseImageName" alt="First slide image"> </div>
+                                            </div>
+                                        </div>
+                                        <!-- END carousel-->
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9">
+                                    <div class="product-detail-wrap">
+
+                                        <h3 class="mb-20 weight-500 " style="font-family: 'B Nazanin'; font-size: 30px;">@Model.CourseTitle</h3>
+
+                                        @*<p class="mb-50">@Html.Raw(Model.CourseDescription)</p>*@
+
+                                        @*    <input class="vertical-spin" type="text" data-bts-button-down-class="btn btn-default" data-bts-button-up-class="btn btn-default" value="1" name="vertical-spin">*@
+                                        <p class="mb-10" style=" font-family: 'B Nazanin'; font-size: 16px; color: black">استاد مربوطه : @Model.User.UserName</p>
+                                        <p class="mb-10" style=" font-family: 'B Nazanin'; font-size: 16px; color: black">وضعیت دوره : @Model.CourseStatus.StatusTitle</p>
+                                        <p class="mb-10" style=" font-family: 'B Nazanin'; font-size: 16px; color: black">سطح دوره : @Model.CourseLevel.LevelTitle</p>
+                                        <p class="mb-10" style=" font-family: 'B Nazanin'; font-size: 16px; color: black">تعداد دانشجو : @Model.UserCourses.Count</p>
+                                        @{ TimeSpan time = new TimeSpan(Model.CourseEpisodes.Sum(e => e.EpisodeTime.Ticks));
+                                        }
+                                        <p class="mb-10" style=" font-family: 'B Nazanin'; font-size: 16px; color:black">
+                                            زمان دوره : @time
+                                        </p>
+                                        @if (Model.CoursePrice != 0 && !UserHaveCourse)
+                                        {
+
+
+                                            <div class="product-price head-font mb-10 success" style="font-size:22px;">قیمت: @Model.CoursePrice.ToString("#,0") تومان</div>
+                                        }
+                                        @if (Model.CoursePrice == 0)
+                                        {
+
+                                            <div class="product-price head-font mb-10 success" style="font-size:22px;">قیمت: رایگان</div>
+
+                                        }
+                                        @if (!UserHaveCourse)
+                                        {
+                                            <div class="btn-group mr-10">
+                                                <a href="/Course/BuyCourse/@Model.CourseId" class="btn btn-success btn-anim"><i class="fa fa-shopping-cart"></i><span class="btn-text">خرید دوره</span></a>
+                                            </div>
+                                        }
+                                        @if (UserHaveCourse)
+                                        {
+                                            <p class="mb-40" style="margin-top:30px; font-family:'B Nazanin'; font-size:20px; color:orangered">
+                                                این دوره قبلا خریداری شده است
+                                            </p>
+                                        }
+                                        @*<div class="btn-group wishlist">
+                                                <button class="btn btn-warning btn-outline btn-anim"><i class="icon-heart"></i><span class="btn-text">add to wishlist</span></button>
+                                            </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Row -->
+        <!-- Row -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default card-view">
+                    <div class="panel-wrapper collapse in">
+                        <div class="panel-body">
+                            <div class="tab-struct custom-tab-1 product-desc-tab">
+                                <ul role="tablist" class="nav nav-tabs nav-tabs-responsive" id="myTabs_7">
+                                    <li class="active" role="presentation"><a aria-expanded="true" data-toggle="tab" role="tab" id="descri_tab" href="#descri_tab_detail"><span>توضیحات</span></a></li>
+                                    <li role="presentation" class="next"><a data-toggle="tab" id="adi_info_tab" role="tab" href="#adi_info_tab_detail" aria-expanded="false"><span>فهرست ویدیو ها</span></a></li>
+                                    <li role="presentation" class=""><a data-toggle="tab" id="review_tab" role="tab" href="#review_tab_detail" aria-expanded="false"><span>ثبت نظر<span class="inline-block"> </span></span></a></li>
+                                    <li role="presentation" class=""><a data-toggle="tab" id="review_tab1" role="tab" href="#review_tab_detail1" aria-expanded="false"><span>نظرات کاربران<span class="inline-block">(<span class="review-count">@NumberofComments</span>)</span></span></a></li>
+
+                                </ul>
+                                <div class="tab-content" id="myTabContent_7">
+                                    <div id="descri_tab_detail" class="tab-pane fade active in pt-0" role="tabpanel">
+                                        <p class="pt-15">@Html.Raw(Model.CourseDescription) </p>
+                                    </div>
+                                    <div id="adi_info_tab_detail" class="tab-pane pt-0 fade" role="tabpanel">
+                                        <div class="table-wrap">
+                                            <div class="table-responsive">
+                                                <table class="table  mb-0">
+                                                    <tbody>
+                                                        @foreach (var c in Model.CourseEpisodes)
+                                                        {
+
+
+                                                            <tr>
+                                                                <td>
+                                                                    @if (c.IsFree || UserHaveCourse)
+                                                                    {
+                                                                        <a title="برای دانلود  @c.EpisodeTitle کلیک کنید" class=" txt txt-primary" href="/DownloadFile/@c.EpisodeId">
+                                                                            @c.EpisodeTitle
+                                                                        </a>
+                                                                    }
+                                                                    else
+                                                                    {
+
+                                                                        @c.EpisodeTitle
+
+                                                                    }
+                                                                </td>
+
+
+                                                                <td>@c.EpisodeTime</td>
+                                                                <td>
+                                                                    @if (c.IsFree)
+                                                                    {
+                                                                        <i class="txt-dark txt-success"> رایگان </i>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <i class="txt-dark txt-primary"> نقدی </i>
+                                                                    }
+                                                                </td>
+
+                                                            </tr>
+
+
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="review_tab_detail" class="tab-pane pt-0 fade" role="tabpanel">
+                                        @*<p class="muted review-tag pt-15">No reviews yet.</p>*@
+
+
+                                        <div class="row mt-40">
+                                            <div class="col-sm-6">
+                                                <div class="form-wrap">
+                                                    @if (User.Identity.IsAuthenticated)
+                                                    {
+                                                        <form asp-controller="Course" asp-action="CreateComment"
+                                                              data-ajax="true"
+                                                              data-ajax-method="post"
+                                                              data-ajax-mode="replace"
+                                                              data-ajax-update="#listComment"
+                                                              data-ajax-success="Success">
+
+
+                                                            <input type="hidden" name="C.CourseId" value="@Model.CourseId" />
+
+                                                            <div class="form-group">
+                                                                <label class="control-label mb-10" for="review">نظر خود را وارد کنید</label>
+                                                                <textarea class="form-control" id="C_Comment" name="C.Comment" placeholder="نظر شما"></textarea>
+                                                            </div>
+
+
+                                                            <div class="form-group mb-0">
+                                                                <button type="submit" id="button" name="button" class="btn btn-success  mr-10">ثبت دیدگاه</button>
+                                                            </div>
+                                                        </form>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="alert alert-danger">
+                                                            جهت درج نظر باید وارد سایت شوید
+                                                        </div>
+                                                    }
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="review_tab_detail1" class="tab-pane pt-0 fade" role="tabpanel">
+                                        @*<p class="muted review-tag pt-15">No reviews yet.</p>*@
+
+                                        <div class="row mt-40">
+                                            <div class="col-sm-6">
+                                                <div class="form-wrap">
+                                                    <div class="comment-list" id="listComment">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Row -->
+    </div>
+
+    <!-- Footer -->
+    @*<footer class="footer container-fluid pl-30 pr-30">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>ترجمه و راست چینی توسط ملت وب</p>
+                </div>
+            </div>
+        </footer>*@
+    <!-- /Footer -->
+
+</div>
+<!-- /Main Content -->
+<!-- /#wrapper -->
+<!-- JavaScript -->
+<!-- jQuery -->
+<script src="/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Form Wizard JavaScript -->
+<script src="/vendors/bower_components/jquery.steps/build/jquery.steps.min.js"></script>
+
+<!-- Bootstrap Touchspin JavaScript -->
+<script src="/vendors/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+
+<!-- Starrr JavaScript -->
+<script src="/dist/js/starrr.js"></script>
+
+<!-- جزئیات محصول Data JavaScript -->
+<script src="/dist/js/product-detail-data.js"></script>
+
+<!-- Slimscroll JavaScript -->
+<script src="/dist/js/jquery.slimscroll.js"></script>
+
+<!-- Owl JavaScript -->
+<script src="/vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+
+<!-- Switchery JavaScript -->
+<script src="/vendors/bower_components/switchery/dist/switchery.min.js"></script>
+
+<!-- Fancy Dropdown JS -->
+<script src="/dist/js/dropdown-bootstrap-extended.js"></script>
+
+<!-- Init JavaScript -->
+<script src="/dist/js/init.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js">
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("button").click(function () {
+            location.reload(true);
+
+        });
+    });
+</script>
+<script src="/js/jquery.unobtrusive-ajax.min.js"></script>
+<script>
+
+        function Success() {
+            location.reload(true);
+        }
+
+        $(function() {
+            $("#listComment").load("/Course/ShowComment/" + @Model.CourseId);
+        });
+
+        function pageComment(pageid) {
+            $("#listComment").load("/Course/ShowComment/" + @Model.CourseId+"?pageId="+pageid);
+        }
+</script>

@@ -1,0 +1,16 @@
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.Core\bin\Debug\netcoreapp3.1\TopLearn.Core.deps.json
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.Core\bin\Debug\netcoreapp3.1\TopLearn.Core.runtimeconfig.json
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.Core\bin\Debug\netcoreapp3.1\TopLearn.Core.runtimeconfig.dev.json
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.Core\bin\Debug\netcoreapp3.1\TopLearn.Core.dll
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.Core\bin\Debug\netcoreapp3.1\TopLearn.Core.pdb
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.Core\bin\Debug\netcoreapp3.1\TopLearn.DataLayer.dll
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.Core\bin\Debug\netcoreapp3.1\TopLearn.DataLayer.pdb
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.Core\obj\Debug\netcoreapp3.1\TopLearn.Core.csproj.AssemblyReference.cache
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.Core\obj\Debug\netcoreapp3.1\TopLearn.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.Core\obj\Debug\netcoreapp3.1\TopLearn.Core.AssemblyInfoInputs.cache
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.Core\obj\Debug\netcoreapp3.1\TopLearn.Core.AssemblyInfo.cs
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.Core\obj\Debug\netcoreapp3.1\TopLearn.Core.csproj.CoreCompileInputs.cache
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.Core\obj\Debug\netcoreapp3.1\TopLearn.Core.csproj.CopyComplete
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.Core\obj\Debug\netcoreapp3.1\TopLearn.Core.dll
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.Core\obj\Debug\netcoreapp3.1\TopLearn.Core.pdb
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearn.Core\obj\Debug\netcoreapp3.1\TopLearn.Core.genruntimeconfig.cache
