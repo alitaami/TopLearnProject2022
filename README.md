@@ -5,7 +5,9 @@ then you can run the project and enjoy that.
 
 ***
 
-You can login with this informations ===>   
-Email: alitaamicr7@gmail.com   Password: 123   
+You can login with these informations => 
+-
+
+         Email: alitaamicr7@gmail.com   Password: 123   
 
 ***
