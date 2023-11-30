@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YmD1n2r6JP7t7z3ysFJU4GZJ0151IYqXMjrcHT1p0A9aDqPoWgLut7Wnv3Xz1RqTTA/sE3geSGolg/OVZ/NRSg==",
+  "dgSpecHash": "w41M1yk9oSReXhORmWs75iiD0MO0n0zuJLNXYogS9+8SZwFzisnZOploIfN8vuYvn09gFrqiwAYiPJvvNttZUw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\TopLearnProject2022.csproj",
   "expectedPackageFiles": [
@@ -235,7 +235,8 @@
     "C:\\Users\\Sarv\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Sarv\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Sarv\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\Sarv\\.nuget\\packages\\zarinpalsandbox\\2.0.4\\zarinpalsandbox.2.0.4.nupkg.sha512"
+    "C:\\Users\\Sarv\\.nuget\\packages\\zarinpalsandbox\\2.0.4\\zarinpalsandbox.2.0.4.nupkg.sha512",
+    "C:\\Users\\Sarv\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512"
   ],
   "logs": []
 }

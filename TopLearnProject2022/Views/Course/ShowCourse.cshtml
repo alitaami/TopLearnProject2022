@@ -21,7 +21,7 @@
 
     <meta name=googlebot content=index,follow>
     <meta name=robots content=noodp,noydir>
-@*باید حداقل 200 کاراکتر باشد*@
+            @*باید حداقل 200 کاراکتر باشد*@
     <meta name=description content="شرح صفحه">
     <meta property=og:site_name value="خودآموزش تاپ لرن">
     <meta property=og:title content="@Model.CourseTitle">
@@ -52,12 +52,12 @@
             </div>
             <!-- Breadcrumb -->
             @*<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                    <ul class="breadcrumb">
-                        <li><a href="index.html">  صفحه اصلی > </a></li>
-                        <li><a href="index.html">  صفحه اصلی  </a></li>
+            <ul class="breadcrumb">
+            <li><a href="index.html">  صفحه اصلی > </a></li>
+            <li><a href="index.html">  صفحه اصلی  </a></li>
 
-                    </ul>
-                </div>*@
+            </ul>
+            </div>*@
             <!-- /Breadcrumb -->
 
         </div>
@@ -97,7 +97,8 @@
                                         <p class="mb-10" style=" font-family: 'B Nazanin'; font-size: 16px; color: black">وضعیت دوره : @Model.CourseStatus.StatusTitle</p>
                                         <p class="mb-10" style=" font-family: 'B Nazanin'; font-size: 16px; color: black">سطح دوره : @Model.CourseLevel.LevelTitle</p>
                                         <p class="mb-10" style=" font-family: 'B Nazanin'; font-size: 16px; color: black">تعداد دانشجو : @Model.UserCourses.Count</p>
-                                        @{ TimeSpan time = new TimeSpan(Model.CourseEpisodes.Sum(e => e.EpisodeTime.Ticks));
+                                        @{
+                                            TimeSpan time = new TimeSpan(Model.CourseEpisodes.Sum(e => e.EpisodeTime.Ticks));
                                         }
                                         <p class="mb-10" style=" font-family: 'B Nazanin'; font-size: 16px; color:black">
                                             زمان دوره : @time
@@ -127,8 +128,8 @@
                                             </p>
                                         }
                                         @*<div class="btn-group wishlist">
-                                                <button class="btn btn-warning btn-outline btn-anim"><i class="icon-heart"></i><span class="btn-text">add to wishlist</span></button>
-                                            </div>*@
+                                        <button class="btn btn-warning btn-outline btn-anim"><i class="icon-heart"></i><span class="btn-text">add to wishlist</span></button>
+                                        </div>*@
                                     </div>
                                 </div>
                             </div>
@@ -212,13 +213,12 @@
                                                 <div class="form-wrap">
                                                     @if (User.Identity.IsAuthenticated)
                                                     {
-                                                        <form asp-controller="Course" asp-action="CreateComment"
-                                                              data-ajax="true"
-                                                              data-ajax-method="post"
-                                                              data-ajax-mode="replace"
-                                                              data-ajax-update="#listComment"
-                                                              data-ajax-success="Success">
-
+                                                        <form asp-controller="Course" asp-action="CreateComment" method="post"
+                                                          data-ajax="true"
+                                                          data-ajax-method="post"
+                                                          data-ajax-mode="replace"
+                                                          data-ajax-update="#listComment"
+                                                          data-ajax-success="Success">
 
                                                             <input type="hidden" name="C.CourseId" value="@Model.CourseId" />
 
@@ -252,7 +252,6 @@
                                             <div class="col-sm-6">
                                                 <div class="form-wrap">
                                                     <div class="comment-list" id="listComment">
-
                                                     </div>
 
                                                 </div>
@@ -273,12 +272,12 @@
 
     <!-- Footer -->
     @*<footer class="footer container-fluid pl-30 pr-30">
-            <div class="row">
-                <div class="col-sm-12">
-                    <p>ترجمه و راست چینی توسط ملت وب</p>
-                </div>
-            </div>
-        </footer>*@
+    <div class="row">
+    <div class="col-sm-12">
+    <p>ترجمه و راست چینی توسط ملت وب</p>
+    </div>
+    </div>
+    </footer>*@
     <!-- /Footer -->
 
 </div>
@@ -286,8 +285,6 @@
 <!-- /#wrapper -->
 <!-- JavaScript -->
 <!-- jQuery -->
-<script src="/vendors/bower_components/jquery/dist/jquery.min.js"></script>
-
 <!-- Bootstrap Core JavaScript -->
 <script src="/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
@@ -317,30 +314,35 @@
 
 <!-- Init JavaScript -->
 <script src="/dist/js/init.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js">
-</script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
+<!-- Bootstrap Core JavaScript -->
+<script src="/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
+<!-- ... (other scripts) ... -->
 <script type="text/javascript">
     $(document).ready(function () {
-        $("button").click(function () {
+        // Exclude the form submit button from triggering page reload
+        $("button:not([type='submit'])").click(function () {
             location.reload(true);
-
         });
     });
 </script>
 <script src="/js/jquery.unobtrusive-ajax.min.js"></script>
 <script>
+    function Success() {
+        // Clear the text area after a short delay to ensure the reload has completed
+        setTimeout(function () {
+            $("#C_Comment").val("");
+        }, 100);
+    }
 
-        function Success() {
-            location.reload(true);
-        }
+    $(function () {
+        $("#listComment").load("/Course/ShowComment/@Model.CourseId");
+    });
 
-        $(function() {
-            $("#listComment").load("/Course/ShowComment/" + @Model.CourseId);
-        });
-
-        function pageComment(pageid) {
-            $("#listComment").load("/Course/ShowComment/" + @Model.CourseId+"?pageId="+pageid);
-        }
+    function pageComment(pageid) {
+        $("#listComment").load("/Course/ShowComment/@Model.CourseId?pageId=" + pageid);
+    }
 </script>

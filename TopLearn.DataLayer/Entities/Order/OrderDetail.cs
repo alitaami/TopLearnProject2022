@@ -21,7 +21,7 @@ namespace TopLearn.DataLayer.Entities.Order
         #region relation
         [ForeignKey("OrderId")]
         public virtual Order Order { get; set; }
-        [ForeignKey("CourseId")]
+        [ForeignKey(nameof(CourseId))]
         public virtual Course.Course Course { get; set; }
         #endregion
 

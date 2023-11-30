@@ -5,26 +5,18 @@
 }
 
 <div class="row">
-    @*برای urlصفحه => action="/Course"*@
     <form method="get" action="/Course">
-
         <div class="col-md-3 col-sm-12 col-xs-12 pull-left">
-            <div class="input-group " style="  margin: 20px;  ">
-
+            <div class="input-group" style="margin: 20px;">
                 <input type="text" name="filter" class="form-control" placeholder="جستجو">
                 <span class="input-group-btn">
-                    <button type="button" class="btn  btn-default" data-target="#search_form" data-toggle="collapse" aria-label="Close" aria-expanded="true"><i class="zmdi zmdi-search"></i></button>
+                    <button type="button" class="btn btn-default" data-target="#search_form" data-toggle="collapse" aria-label="Close" aria-expanded="true"><i class="zmdi zmdi-search"></i></button>
                 </span>
-
             </div>
         </div>
-   
         <div class="col-md-6 col-sm-6 col-xs-6 pull-left">
-
-
             <div class="col-sm-3">
-                <div class="form-group" style="margin: 20px;" >
-
+                <div class="form-group" style="margin: 20px;">
                     <select name="getType" class="form-control">
                         <option disabled>نوع دوره</option>
                         <option value="all">همه</option>
@@ -35,98 +27,31 @@
             </div>
             <div class="col-sm-3">
                 <div class="form-group" style="margin: 20px;">
-
                     <select name="orderBy" class="form-control">
                         <option disabled>مرتب سازی</option>
                         <option value="date">تاریخ ایجاد</option>
                         <option value="updateDate">تاریخ بروزرسانی</option>
-
                     </select>
                 </div>
             </div>
-            @*<div class="col-sm-3">
-                    <div class="form-group">
-
-                        <select class="form-control">
-                            <option>دسته بندی</option>
-                            <option>تاریخ ایجاد</option>
-                            <option>تاریخ بروزرسانی</option>
-
-                        </select>
-                    </div>
-                </div>*@
             <a href="/Course" style="margin: 20px;" class="btn btn-primary btn-anim"><i class="fa fa-trash-o"></i><span class="btn-text">حذف فیلترها</span></a>
-
         </div>
-
-        @*<div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body ">
-                            <h5 class="card-title">چک باکس ها</h5>
-                            <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck" checked="">
-                                    <label class="custom-control-label" for="customCheck">چک باکس سفارشی - پیش فرض</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck" checked="">
-                                    <label class="custom-control-label" for="customCheck">چک باکس سفارشی - پیش فرض</label>
-                                </div>
-                            </div>      <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck" checked="">
-                                    <label class="custom-control-label" for="customCheck">چک باکس سفارشی - پیش فرض</label>
-                                </div>
-                            </div>      <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck" checked="">
-                                    <label class="custom-control-label" for="customCheck">چک باکس سفارشی - پیش فرض</label>
-                                </div>
-                            </div>      <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck" checked="">
-                                    <label class="custom-control-label" for="customCheck">چک باکس سفارشی - پیش فرض</label>
-                                </div>
-                            </div>      <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck" checked="">
-                                    <label class="custom-control-label" for="customCheck">چک باکس سفارشی - پیش فرض</label>
-                                </div>
-                            </div>      <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck" checked="">
-                                    <label class="custom-control-label" for="customCheck">چک باکس سفارشی - پیش فرض</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-            </div>*@
     </form>
 </div>
 
-
-
 @foreach (var item in Model.Item1)
 {
-
     <partial name="_BoxCourse" model="@item" />
 }
 
 @if (Model.Item2 > 1)
-{<div class="col-md-12 col-sm-12 vertical-align-middle justify-content-center align-items-center">
-     <ul class="pagination">
-         @*<li> <a href="#"><i class="fa fa-angle-left"></i></a> </li>*@
-         @for (int i = 1; i <= Model.Item2; i++)
-         {
-             <li> <a href="/Course?pageid=@i">@i</a> </li>
-
-         }
-
-         @*<li> <a href="#"><i class="fa fa-angle-right"></i></a> </li>*@
-     </ul>
+{
+    <div class="col-md-12 col-sm-12 vertical-align-middle justify-content-center align-items-center">
+        <ul class="pagination">
+            @for (int i = 1; i <= Model.Item2; i++)
+            {
+                <li><a href="/Course?pageid=@i">@i</a></li>
+            }
+        </ul>
     </div>
 }

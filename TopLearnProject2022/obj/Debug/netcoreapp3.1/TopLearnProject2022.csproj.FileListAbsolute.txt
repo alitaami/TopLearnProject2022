@@ -138,6 +138,11 @@ C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\net
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\TopLearnProject2022.RazorAssemblyInfo.cache
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\TopLearnProject2022.RazorAssemblyInfo.cs
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\staticwebassets\TopLearnProject2022.StaticWebAssets.Manifest.cache
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\staticwebassets\TopLearnProject2022.StaticWebAssets.Pack.cache
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.TopLearnProject2022.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.build.TopLearnProject2022.props
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildMultiTargeting.TopLearnProject2022.props
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildTransitive.TopLearnProject2022.props
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\TopLearnProject2022.TagHelpers.input.cache
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\TopLearnProject2022.TagHelpers.output.cache
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\TopLearnProject2022.RazorCoreGenerate.cache
@@ -149,6 +154,9 @@ C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\net
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Areas\UserPanel\Views\MyOrders\ShowOrder.cshtml.g.cs
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Areas\UserPanel\Views\Wallet\Index.cshtml.g.cs
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Areas\UserPanel\Views\_ViewStart.cshtml.g.cs
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\CourseGroups\CreateGroup.cshtml.g.cs
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\CourseGroups\EditGroup.cshtml.g.cs
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\CourseGroups\Index.cshtml.g.cs
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Courses\CreateCourse.cshtml.g.cs
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Courses\CreateEpisode.cshtml.g.cs
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Courses\EditCourse.cshtml.g.cs
@@ -199,6 +207,3 @@ C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\net
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\TopLearnProject2022.dll
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\TopLearnProject2022.pdb
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\TopLearnProject2022.genruntimeconfig.cache
-C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\CourseGroups\Index.cshtml.g.cs
-C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\CourseGroups\CreateGroup.cshtml.g.cs
-C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\CourseGroups\EditGroup.cshtml.g.cs

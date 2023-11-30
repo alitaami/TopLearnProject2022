@@ -360,6 +360,7 @@ namespace TopLearn.Core.Services
             course.UpdateDate = DateTime.Now;
             if (imgCourse != null)
             {
+            
                 if (course.CourseImageName != null)
                 {
                     string ImageDeletepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Course/Image", course.CourseImageName);
