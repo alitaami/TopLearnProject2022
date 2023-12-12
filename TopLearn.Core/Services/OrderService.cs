@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Toplearn.Core.Convertors;
+using Toplearn.Core.Senders;
 using TopLearn.Core.DTOs.Course;
 using TopLearn.Core.DTOs.Order;
 using TopLearn.Core.Services.Interfaces;
 using TopLearn.DataLayer.Context;
 using TopLearn.DataLayer.Entities.Course;
 using TopLearn.DataLayer.Entities.Order;
+using TopLearn.DataLayer.Entities.User;
 using TopLearn.DataLayer.Entities.Wallet;
 
 namespace TopLearn.Core.Services
@@ -30,7 +32,11 @@ namespace TopLearn.Core.Services
             _Context.Discounts.Add(discount);
             _Context.SaveChanges();
 
-
+            var users = _Context.Users.ToList();
+            foreach (var user in users)
+            {
+                SendMail.SendAsync(user.Email, "کدتخفیف", $"کد تخفیف {discount.DiscountCode} را می‌توانید تا تاریخ {discount.EndDate} استفاده کنید"); 
+            }
         }
 
         public int AddOrder(string userName, int courseId)
@@ -176,7 +182,7 @@ namespace TopLearn.Core.Services
             var courses = _Context.UserCourses
                 .Include(o => o.Course).Where(o => o.UserId == userid).Select(n => new ShowUserCoursesDto
                 {
-                    CourseId= n.CourseId,
+                    CourseId = n.CourseId,
                     ImageName = n.Course.CourseImageName,
                     Title = n.Course.CourseTitle
                 }).ToList();

@@ -137,7 +137,7 @@ namespace TopLearnProject2022.Controllers
                 _userService.AddUser(user);
                 #region send activation email
                 string body = _viewRender.RenderToStringAsync("_ActiveEmail", user);
-                SendEmail.Send(user.Email, "فعالسازی", body);
+                SendMail.SendAsync(user.Email, "فعالسازی", body);
                 #endregion
             }
             if (register.RePassword != register.Password)
@@ -185,7 +185,7 @@ namespace TopLearnProject2022.Controllers
                 ViewBag.email = "s";
             }
             string bodyemail = _viewRender.RenderToStringAsync("_forgotpassword", user);
-            SendEmail.Send(user.Email, "بازیابی کلمه عبور", bodyemail);
+            SendMail.SendAsync(user.Email, "بازیابی کلمه عبور", bodyemail);
             ViewBag.s = "s s";
             return View();
            

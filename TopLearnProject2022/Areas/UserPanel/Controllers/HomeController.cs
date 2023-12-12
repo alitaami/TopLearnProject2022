@@ -51,7 +51,7 @@ namespace TopLearnProject2022.Areas.UserPanel.Controllers
             var user = _user.GetInfoByUsername(User.Identity.Name);
 
             string body = _viewRender.RenderToStringAsync("_ActiveEmail", user);
-            SendEmail.Send(user.Email, "فعالسازی", body);
+            SendMail.SendAsync(user.Email, "فعالسازی", body);
 
 
             ViewBag.exit = "s";

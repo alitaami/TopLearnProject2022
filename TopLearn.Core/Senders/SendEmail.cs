@@ -1,36 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Toplearn.Core.Senders
 {
-   public  class SendEmail
+    public class SendMail
     {
-        public static void Send(string to, string subject, string body)
+        public static void SendAsync(string to, string subject, string body)
         {
             using (MailMessage mail = new MailMessage())
             {
+                mail.From = new MailAddress("prozheali@gmail.com", "تاپ لرن");
+                mail.To.Add(to);
+                mail.Subject = subject;
+                mail.Body = body;
+                mail.IsBodyHtml = true;
+
                 using (SmtpClient smtpServer = new SmtpClient("smtp.gmail.com"))
                 {
-                    // Sender information
-                    mail.From = new MailAddress("prozheali@gmail.com", "تاپ لرن");
-                    mail.To.Add(to);
-                    mail.Subject = subject;
-                    mail.Body = body;
-                    mail.IsBodyHtml = true;
-
-                    // SMTP server settings
+                    smtpServer.UseDefaultCredentials = false;
                     smtpServer.Port = 587;
-                    smtpServer.UseDefaultCredentials = false;  // Set this before assigning Credentials
-                    smtpServer.Credentials = new System.Net.NetworkCredential("prozheali@gmail.com", "wafsqqihjfyyulge");
+                    smtpServer.Credentials = new NetworkCredential("prozheali@gmail.com", "ayszpqnyevqvbujn");
                     smtpServer.EnableSsl = true;
-
-                    // Send the email
-                    smtpServer.Send(mail);
+                    try
+                    {
+                        smtpServer.SendMailAsync(mail);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
                 }
             }
         }
-
     }
 }
