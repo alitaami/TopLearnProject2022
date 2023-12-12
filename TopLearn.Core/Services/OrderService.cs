@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Toplearn.Core.Convertors;
+using TopLearn.Core.DTOs.Course;
 using TopLearn.Core.DTOs.Order;
 using TopLearn.Core.Services.Interfaces;
 using TopLearn.DataLayer.Context;
@@ -168,6 +169,21 @@ namespace TopLearn.Core.Services
             return false;
         }
 
+        public List<ShowUserCoursesDto> GetCourses(string username)
+        {
+            int userid = _User.GetUserIdByUserName(username);
+
+            var courses = _Context.UserCourses
+                .Include(o => o.Course).Where(o => o.UserId == userid).Select(n => new ShowUserCoursesDto
+                {
+                    CourseId= n.CourseId,
+                    ImageName = n.Course.CourseImageName,
+                    Title = n.Course.CourseTitle
+                }).ToList();
+
+            return courses;
+        }
+
         public Discount GetdiscountbyId(int id)
         {
             return _Context.Discounts.Find(id);
@@ -198,13 +214,13 @@ namespace TopLearn.Core.Services
 
         public bool ISExistCode(string code)
         {
-            return _Context.Discounts.Where(d=>d.IsDelete==false).Any(d => d.DiscountCode == code);
+            return _Context.Discounts.Where(d => d.IsDelete == false).Any(d => d.DiscountCode == code);
         }
 
         public bool IsUserHaveCourse(string username, int courseid)
         {
             int userid = _User.GetUserIdByUserName(username);
-            return _Context.UserCourses.Any(c => c.CourseId == courseid && c.UserId == userid); 
+            return _Context.UserCourses.Any(c => c.CourseId == courseid && c.UserId == userid);
         }
 
         public void UpdateOrder(Order order)

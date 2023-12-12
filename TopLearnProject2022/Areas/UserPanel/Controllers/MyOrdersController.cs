@@ -65,8 +65,12 @@ namespace TopLearnProject2022.Areas.UserPanel.Controllers
             return Redirect("/UserPanel/MyOrders/ShowOrder/" + orderid + "?type=" + type.ToString());
 
         }
-        
+        public IActionResult UserCourses()
+        {
+            ViewBag.UserCourses = _orderService.GetCourses(User.Identity.Name);
 
+            return View();
+        }
         }
     }
 

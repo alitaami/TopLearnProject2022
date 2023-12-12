@@ -38,7 +38,7 @@
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> ریزفاکتوری وجود ندارد و یا  قبل از پرداخت حذف شده است
                 </div>
             }
-
+                                                  
             @if (ViewBag.finaly == true)
             {
                 <div class="alert alert-success alert-dismissable">
@@ -93,11 +93,7 @@
                             break;
                         }
                 }
-            }
-
-
-
-
+            } 
             <!-- Row -->
             <div class="row">
                 <div class="col-sm-12">
@@ -155,12 +151,11 @@
                                                         @foreach (var item in Model.OrderDetails)
                                                         {
                                                             <tr>
-                                                                <td>
-
+                                                                <td> 
                                                                     <img src="/Course/Image/@item.Course.CourseImageName" alt="iMac" width="80">
                                                                 </td>
                                                                 <td class="txt-dark">
-                                                                    <a href="/ShowCourse/@item.Course" target="_blank">@item.Course.CourseTitle</a>
+                                                                    <a href="/Course/ShowCourse/@item.Course.CourseId" target="_blank">@item.Course.CourseTitle</a>
                                                                 </td>
                                                                 <td class="txt-dark">
                                                                     @item.Count

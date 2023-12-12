@@ -15,6 +15,7 @@
     <!-- begin::global styles -->
     <link rel="stylesheet" href="/assets/vendors/bundle.css" type="text/css">
     <!-- end::global styles -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/assets/vendors/swiper/swiper.min.css">
 
@@ -51,10 +52,10 @@
         <div class="side-menu-body">
             <ul>
                 <li class="side-menu-divider">فهرست</li>
-                <li><a class="active" href="/Admin/Index"><i class="icon ti-panel"></i> <span>پنل ادمین</span> </a></li>
+                <li><a class="active" href="/Admin/Index"><i class="icon ti-panel"></i> <span>پنل</span> </a></li>
     
                 <li>
-                    <a href="#"><i class="icon ti-user"></i> <span>مدیریت کاربران</span> </a>
+                    <a href="#"><i class="icon ti-user"></i> <span>مدیریت وبسایت</span> </a>
                     <ul>
                         @* <li><a href="/Roles/">دسترسی ها </a></li>*@
                         <li><a href="/Admin/Users">کاربران </a></li>
@@ -133,19 +134,22 @@
                     <li class="nav-item">
                        
                     <li class="nav-item dropdown">
-                        <a href="#" data-toggle="dropdown">
+                       @* <a href="#" data-toggle="dropdown">
                             <figure class="avatar avatar-sm avatar-state-success">
-                                @if (User.Identity.IsAuthenticated)
-                                {
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
                                     <img class="rounded-circle" src="/UserAvatar/@user.UserAvatar" alt="...">
-                                }
+                                    }
                             </figure>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
+                        </a>*@
+                       @* <div class="dropdown-menu dropdown-menu-right">
                             <a href="profile.html" class="dropdown-item">پروفایل</a>
                             <a href="#" data-sidebar-target="#settings" class="sidebar-open dropdown-item">تنظیمات</a>
                             <div class="dropdown-divider"></div>
-                            <a href="login.html" class="text-danger dropdown-item">خروج</a>
+                            <a href="/login.html" class="text-danger dropdown-item">خروج</a>
+                        </div> *@
+                        <div>
+                            <a asp-controller="Account" asp-action="Logout" style="color:white">خروج</a>
                         </div>
                     </li>
                     <li class="nav-item d-lg-none d-sm-block">
@@ -154,8 +158,7 @@
                         </a>
                     </li>
                 </ul>
-            </div>
-
+            </div> 
         </div>
     </nav>
     <!-- end::navbar -->

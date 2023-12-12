@@ -207,3 +207,4 @@ C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\net
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\TopLearnProject2022.dll
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\TopLearnProject2022.pdb
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\TopLearnProject2022.genruntimeconfig.cache
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Areas\UserPanel\Views\MyOrders\UserCourses.cshtml.g.cs
