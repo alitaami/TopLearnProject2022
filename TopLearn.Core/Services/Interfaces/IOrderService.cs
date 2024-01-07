@@ -13,6 +13,7 @@ namespace TopLearn.Core.Services.Interfaces
         int AddOrder(string userName, int courseId);
         void UpdatePriceOrder(int orderid);
         Order getOrderForUSerPanel(string username, int orderid);
+        Order getOrderForUSerPanel(string username);
         Order getOrderById(int orderid); 
         bool FinalyOrder(string username,int Orderid);
         void deleteOrder(string username,int detailid);

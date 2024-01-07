@@ -1,0 +1,241 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TopLearnProject2022
+build_property.RootNamespace = TopLearnProject2022
+build_property.ProjectDir = C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Areas/UserPanel/Views/Home/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclBhbmVsXFZpZXdzXEhvbWVcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Areas/UserPanel/Views/Home/EditProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclBhbmVsXFZpZXdzXEhvbWVcRWRpdFByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Areas/UserPanel/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclBhbmVsXFZpZXdzXEhvbWVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Areas/UserPanel/Views/MyOrders/DeleteOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclBhbmVsXFZpZXdzXE15T3JkZXJzXERlbGV0ZU9yZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Areas/UserPanel/Views/MyOrders/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclBhbmVsXFZpZXdzXE15T3JkZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Areas/UserPanel/Views/MyOrders/ShowOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclBhbmVsXFZpZXdzXE15T3JkZXJzXFNob3dPcmRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Areas/UserPanel/Views/MyOrders/ShowOrder2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclBhbmVsXFZpZXdzXE15T3JkZXJzXFNob3dPcmRlcjIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Areas/UserPanel/Views/MyOrders/UserCourses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclBhbmVsXFZpZXdzXE15T3JkZXJzXFVzZXJDb3Vyc2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Areas/UserPanel/Views/Wallet/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclBhbmVsXFZpZXdzXFdhbGxldFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Areas/UserPanel/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclBhbmVsXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/CourseGroups/CreateGroup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ291cnNlR3JvdXBzXENyZWF0ZUdyb3VwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/CourseGroups/EditGroup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ291cnNlR3JvdXBzXEVkaXRHcm91cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/CourseGroups/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ291cnNlR3JvdXBzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/Courses/CreateCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ291cnNlc1xDcmVhdGVDb3Vyc2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/Courses/CreateEpisode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ291cnNlc1xDcmVhdGVFcGlzb2RlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/Courses/EditCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ291cnNlc1xFZGl0Q291cnNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/Courses/EditEpisode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ291cnNlc1xFZGl0RXBpc29kZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/Courses/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ291cnNlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/Courses/IndexEpisode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ291cnNlc1xJbmRleEVwaXNvZGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/Discounts/CreateDiscount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGlzY291bnRzXENyZWF0ZURpc2NvdW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/Discounts/DeleteDiscount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGlzY291bnRzXERlbGV0ZURpc2NvdW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/Discounts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGlzY291bnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/Users/CreateUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcQ3JlYXRlVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/Users/DeleteUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcRGVsZXRlVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/Users/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcRWRpdFVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Admin/Users/ListDeleteUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnNcTGlzdERlbGV0ZVVzZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Roles/CreateRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZXNcQ3JlYXRlUm9sZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Roles/DeleteRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZXNcRGVsZXRlUm9sZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Roles/EditRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZXNcRWRpdFJvbGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Roles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/Shared/_Layout2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Account/ActiveAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBY3RpdmVBY2NvdW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Course/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Course/ShowComment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXFNob3dDb21tZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Course/ShowCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXFNob3dDb3Vyc2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Home/onlinePayment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxvbmxpbmVQYXltZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Shared/Components/CourseGroupComponent/CourseGroup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ291cnNlR3JvdXBDb21wb25lbnRcQ291cnNlR3JvdXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Shared/_ActiveEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BY3RpdmVFbWFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Shared/_BoxCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Cb3hDb3Vyc2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Shared/_ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sarv/source/repos/TopLearnProject2022/TopLearnProject2022/wwwroot/UserAvatar/b85d14a4c1cf4d089c456d3e0026d598.cshtml]
+build_metadata.AdditionalFiles.TargetPath = d3d3cm9vdFxVc2VyQXZhdGFyXGI4NWQxNGE0YzFjZjRkMDg5YzQ1NmQzZTAwMjZkNTk4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 

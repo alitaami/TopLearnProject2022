@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "TopLearn.DataLayer": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:64173;http://localhost:64174"
+    }
+  }
+}

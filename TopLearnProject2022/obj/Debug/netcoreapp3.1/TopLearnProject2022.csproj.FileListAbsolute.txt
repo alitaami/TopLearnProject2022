@@ -152,6 +152,7 @@ C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\net
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Areas\UserPanel\Views\MyOrders\DeleteOrder.cshtml.g.cs
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Areas\UserPanel\Views\MyOrders\Index.cshtml.g.cs
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Areas\UserPanel\Views\MyOrders\ShowOrder.cshtml.g.cs
+C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Areas\UserPanel\Views\MyOrders\UserCourses.cshtml.g.cs
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Areas\UserPanel\Views\Wallet\Index.cshtml.g.cs
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Areas\UserPanel\Views\_ViewStart.cshtml.g.cs
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\CourseGroups\CreateGroup.cshtml.g.cs
@@ -207,4 +208,3 @@ C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\net
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\TopLearnProject2022.dll
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\TopLearnProject2022.pdb
 C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\TopLearnProject2022.genruntimeconfig.cache
-C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\obj\Debug\netcoreapp3.1\Razor\Areas\UserPanel\Views\MyOrders\UserCourses.cshtml.g.cs

@@ -1,0 +1,223 @@
+﻿@using TopLearn.Core.Services.Interfaces
+@model TopLearn.DataLayer.Entities.Order.Order
+
+@inject IUserService _UserService
+@{
+    int sumOrder = Model.OrderSum;
+    string DiscountType = ViewBag.type.ToString();
+    ViewData["Title"] = "ShowOrder";
+}
+<!-- Main Content -->
+<form method="post" action="/UserPanel/MyOrders/UseDiscount">
+
+    <div class="page-wrapper">
+        <div class="container-fluid">
+
+            <!-- Title -->
+            <div class="row heading-bg">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h5 class="txt-dark"> فاکتورِ کاربر  : @User.Identity.Name</h5>
+
+
+                </div>
+
+                <!-- Breadcrumb -->
+                @*<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <ol class="breadcrumb">
+                            <li><a href="index.html">داشبورد</a></li>
+                            <li><a href="#"><span>e-commerce</span></a></li>
+                            <li class="active"><span>cart</span></li>
+                        </ol>
+                    </div>*@
+                <!-- /Breadcrumb -->
+            </div>
+            <!-- /Title -->
+            @if (!Model.OrderDetails.Any())
+            {
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> ریزفاکتوری وجود ندارد و یا  قبل از پرداخت حذف شده است
+                </div>
+            }
+                                                  
+            @if (ViewBag.finaly == true)
+            {
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <i class="zmdi zmdi-check pr-15 pull-left"></i><p class="pull-left">فاکتور با موفقیت پرداخت گردیده است</p>
+                    <div class="clearfix"></div>
+                </div>
+            }
+
+            @if (DiscountType != null)
+            {
+                switch (DiscountType)
+                {
+                    case "Success":
+                        {<div class="alert alert-success alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <i class="zmdi zmdi-check pr-15 pull-left"></i><p class="pull-left">کد تخفیف اعمال گردید</p>
+                                <div class="clearfix"></div>
+                            </div>
+                            break;
+                        }
+                    case "ExpireDate":
+                        {<div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <i class="zmdi  pr-15 pull-left"></i><p class="pull-left">کد تخفیف منقضی شده است</p>
+                                <div class="clearfix"></div>
+                            </div>
+                            break;
+                        }
+                    case "NotFound":
+                        {<div class="alert alert-warning alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <i class="zmdi   pr-15 pull-left"></i><p class="pull-left">کد تخفیف وارد شده صحیح نیست</p>
+                                <div class="clearfix"></div>
+                            </div>
+                            break;
+                        }
+                    case "Finished":
+                        {<div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <i class="zmdi   pr-15 pull-left"></i><p class="pull-left">  تعداد دفعات مجاز استفاده از کد تخفیف به پایان رسیده است</p>
+                                <div class="clearfix"></div>
+                            </div>
+                            break;
+                        }
+                    case "UserUsed":
+                        {<div class="alert alert-info alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <i class="zmdi   pr-15 pull-left"></i><p class="pull-left">کد تخفیف استفاده شده است</p>
+                                <div class="clearfix"></div>
+                            </div>
+                            break;
+                        }
+                }
+            } 
+            <!-- Row -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-default card-view">
+                        <div class="panel-wrapper collapse in">
+                            <div class="panel-body row">
+                                <form id="example-advanced-form" action="#">
+                                    <div class="table-wrap">
+                                        <div class="table-responsive">
+                                            <table class="table display product-overview mb-30" id="datable_1">
+                                                <thead>
+                                                    <tr>
+                                                        <th>عکس دوره</th>
+                                                        <th>محصول</th>
+                                                        <th>تعداد</th>
+                                                        <th>قیمت</th>
+                                                        @*<th>Actions</th>*@
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    @if (!Model.IsFinaly)
+                                                    {
+
+                                                        <tr>
+
+                                                            <th colspan="3">جمع کل: @sumOrder.ToString("#,0") </th>
+                                                            <th>
+                                                                <div class="col-4 " style="display:flex    ">
+
+                                                                    <label class="control-label mr-10 " style="width: 80px; align-self:center">کد تخفیف:</label>
+                                                                    <input type="hidden" value="@Model.OrderId" name="orderid" />
+                                                                    <input type="text" name="code" class="form-control " id="">
+
+                                                                    <button type="submit" class="btn btn-success btn-sm">اعمال</button>
+
+
+                                                                </div>
+
+
+                                                            </th>
+                                                            <th></th>
+
+
+                                                        </tr>
+
+                                                    }
+                                                    @if(Model.IsFinaly && Model.OrderDetails.Any())
+                                                    {
+
+                                                        <tr>
+                                                        <th colspan="3">جمع کل: @sumOrder.ToString("#,0") </th>
+                                                        </tr>}
+                                                </tfoot>
+                                                    <tbody>
+                                                        @foreach (var item in Model.OrderDetails)
+                                                        {
+                                                            <tr>
+                                                                <td> 
+                                                                    <img src="/Course/Image/@item.Course.CourseImageName" alt="iMac" width="80">
+                                                                </td>
+                                                                <td class="txt-dark">
+                                                                    <a href="/Course/ShowCourse/@item.Course.CourseId" target="_blank">@item.Course.CourseTitle</a>
+                                                                </td>
+                                                                <td class="txt-dark">
+                                                                    @item.Count
+                                                                </td>
+                                                                <td>
+                                                                    @((item.Count * item.Price).ToString("#,0"))
+                                                                    @*<input class="vertical-spin" type="text" data-bts-button-down-class="btn btn-default" data-bts-button-up-class="btn btn-default" value="20" name="vertical-spin">*@
+                                                                </td>
+
+                                                                @if (item.Order.IsFinaly == false)
+                                                                {
+                                                                    <td><a href="/UserPanel/MyOrders/DeleteOrder/@item.DetailId" class="text-inverse" title="Delete" data-toggle="tooltip"><i class="zmdi zmdi-delete txt-danger"></i></a></td>
+                                                                }
+
+                                                            </tr>
+
+                                                        }
+
+                                                    </tbody>
+                                                </table>
+
+                                            @if (Model.IsFinaly == false)
+                                            {
+                                                @if (_UserService.BalanceUserWallet(User.Identity.Name) >= sumOrder)
+                                                {
+
+                                                    <div class="form-actions pull-right pr-15">
+                                                        <a class="btn btn-success btn-anim mr-10 pull-left" href="/UserPanel/MyOrders/FinalyOrder/@Model.OrderId"><i class="fa fa-shopping-cart"></i><span class="btn-text">تایید فاکتور</span></a>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+
+                                                    <div class="alert  alert-danger">
+                                                        موجودی کیف پول شما کافی نمیباشد لطفا از این
+                                                        <a href="/UserPanel/Wallet" class="alert-link">لینک</a>
+                                                        اقدام به شارژ کنید و سپس فاکتور خود را تایید کنید
+                                                    </div>
+                                                }
+
+                                            }
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Row -->
+        </div>
+</form>
+<!-- Footer -->
+@*<footer class="footer container-fluid pl-30 pr-30">
+        <div class="row">
+            <div class="col-sm-12">
+                <p>ترجمه و راست چینی توسط ملت وب</p>
+            </div>
+        </div>
+    </footer>*@
+<!-- /Footer -->
+                        </div>
+<!-- /Main Content -->

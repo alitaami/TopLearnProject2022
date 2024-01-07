@@ -19,6 +19,7 @@ namespace TopLearn.Core.Services.Interfaces
         User GetInfoByUsername(string username);
         User GetUserByActiveCode(string activecode);
         int GetUserIdByUserName(string username);
+        bool CheckUserRole(string username);
         void UpdateUser(User user);
         InformationUserViewModel GetUserInformation(string username);
         InformationUserViewModel GetUserInformation(int UserId);

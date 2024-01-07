@@ -35,11 +35,22 @@ namespace TopLearnProject2022.Areas.UserPanel.Controllers
             return Redirect("/UserPanel/MyOrders");
 
         }
-
-
+         
         public IActionResult ShowOrder(int id, bool finaly = false,string type="")
         {
             var order = _orderService.getOrderForUSerPanel(User.Identity.Name, id);
+
+            if (order == null)
+            {
+                return NotFound();
+            }
+            ViewBag.finaly = finaly;
+            ViewBag.type = type;
+            return View(order);
+        }
+        public IActionResult ShowOrder2( bool finaly = false,string type="")
+        {
+            var order = _orderService.getOrderForUSerPanel(User.Identity.Name);
 
             if (order == null)
             {

@@ -35,7 +35,7 @@ namespace TopLearn.Core.Services
             var users = _Context.Users.ToList();
             foreach (var user in users)
             {
-                SendMail.SendAsync(user.Email, "کدتخفیف", $"کد تخفیف {discount.DiscountCode} را می‌توانید تا تاریخ {discount.EndDate} استفاده کنید"); 
+                SendMail.SendAsync(user.Email, "کدتخفیف", $"کد تخفیف {discount.DiscountCode} را می‌توانید تا تاریخ {discount.EndDate} استفاده کنید");
             }
         }
 
@@ -76,7 +76,7 @@ namespace TopLearn.Core.Services
                 OrderDetail detail = _Context.OrderDetails.FirstOrDefault(d => d.OrderId == order.OrderId && d.CourseId == courseId);
                 if (detail != null)
                 {
-                    detail.Count += 1;
+                    detail.Count = 1;
                     _Context.OrderDetails.Update(detail);
                 }
                 else
@@ -123,11 +123,18 @@ namespace TopLearn.Core.Services
                         Price = detail.Price,
                         OrderId = detail.OrderId
                     });
+                    var orders = _Context.Orders.Where(o => o.OrderId == detail.OrderId).FirstOrDefault();
+                    orders.OrderSum = orders.OrderSum - detail.Price * detail.Count;
+
                     _Context.OrderDetails.Remove(detail);
                 }
                 else
                 {
                     _Context.OrderDetails.Remove(detail);
+                    
+                    var orders = _Context.Orders.Where(o => o.OrderId == detail.OrderId).FirstOrDefault();
+                    orders.OrderSum = orders.OrderSum - detail.Price * detail.Count;
+
                 }
                 _Context.SaveChanges();
             }
@@ -143,7 +150,7 @@ namespace TopLearn.Core.Services
             {
                 return false;
             }
-            if (_User.BalanceUserWallet(username) > order.OrderSum)
+            if (_User.BalanceUserWallet(username) >= order.OrderSum)
             {
 
                 order.IsFinaly = true;
@@ -210,6 +217,12 @@ namespace TopLearn.Core.Services
             int userid = _User.GetUserIdByUserName(username);
             return _Context.Orders.Include(o => o.OrderDetails).ThenInclude(od => od.Course)
                 .FirstOrDefault(o => o.UserId == userid && o.OrderId == orderid);
+        }
+         public Order getOrderForUSerPanel(string username)
+        {
+            int userid = _User.GetUserIdByUserName(username);
+            return _Context.Orders.Include(o => o.OrderDetails).ThenInclude(od => od.Course)
+                .FirstOrDefault(o => o.UserId == userid && o.IsFinaly == false);
         }
 
         public List<Order> GetOrders(string username)

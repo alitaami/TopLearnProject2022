@@ -29,166 +29,221 @@ namespace TopLearnProject2022.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            try
+            {
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
         [Route("Login")]
         public IActionResult Login()
         {
-            return View();
+            try
+            {
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
         [HttpPost]
         [Route("Login")]
         public IActionResult Login(LoginViewModel login, string ReturnUrl = "/")
         {
-            if (!ModelState.IsValid)
+            try
             {
-                ViewBag.email = "ada";
-                return View(login);
-            }
-
-            var user = _userService.LoginUser(login);
-            if (user != null)
-            {
-                if (user.IsActive)
+                if (!ModelState.IsValid)
                 {
-                    var Claims = new List<Claim>()
+                    ViewBag.email = "ada";
+                    return View(login);
+                }
+
+                var user = _userService.LoginUser(login);
+                if (user != null)
+                {
+                    if (user.IsActive)
+                    {
+                        var Claims = new List<Claim>()
                         {
                         new Claim(ClaimTypes.NameIdentifier,user.UserId.ToString()),
                         new Claim(ClaimTypes.Name,user.UserName)
                         };
-                    var identity = new ClaimsIdentity(Claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                    var principal = new ClaimsPrincipal(identity);
-                    var properties = new AuthenticationProperties
-                    {
-                        IsPersistent = login.RememberMe
-                    };
-                    HttpContext.SignInAsync(principal, properties);
+                        var identity = new ClaimsIdentity(Claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                        var principal = new ClaimsPrincipal(identity);
+                        var properties = new AuthenticationProperties
+                        {
+                            IsPersistent = login.RememberMe
+                        };
+                        HttpContext.SignInAsync(principal, properties);
 
-                    ViewBag.success = "sd";
-                    if (ReturnUrl != "/")
-                    {
-                        return Redirect(ReturnUrl);
+                        ViewBag.success = "sd";
+                        if (ReturnUrl != "/")
+                        {
+                            return Redirect(ReturnUrl);
+                        }
+                        return View();
                     }
-                    return View();
-                } 
+                    else
+                    {
+                        ViewBag.e = "sda";
+                        return View();
+
+                    }
+                    //ModelState.AddModelError("Email", "حساب کاربری شما فعال نمیباشد");
+                }
                 else
                 {
-                    ViewBag.e = "sda";
-                    return View();
+
+                    ViewBag.email = "sda";
+                    return View(login);
+                    //ModelState.AddModelError("Email", "کاربری با این مشخضات یافت نشد");
 
                 }
-                //ModelState.AddModelError("Email", "حساب کاربری شما فعال نمیباشد");
             }
-            else
+            catch (Exception ex)
             {
-
-                ViewBag.email = "sda";
-                return View(login);
-                //ModelState.AddModelError("Email", "کاربری با این مشخضات یافت نشد");
-
-            }
-
+                return BadRequest(ex.Message);
+            } 
         }
         [Route("Logout")]
         public IActionResult Logout()
         {
-            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return Redirect("/");
+            try
+            {
+                HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                return Redirect("/");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [Route("Register")]
         public IActionResult Register()
         {
-            return View();
+            try
+            {
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
         [HttpPost]
         [Route("Register")]
         public IActionResult Register(RegisterViewModel register)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return View(register);
-            }
-            if (_userService.IsExistUserName(register.Username))
-            {
-                ViewBag.User = "نام کاربری تکراریست";
-                //ModelState.AddModelError("Username", "نام کاربری تکراریست");
-                return View(register);
-            }
-            if (_userService.IsExistEmail(FixedText.FixEmail(register.Email)))
-            {
-                ViewBag.email = "ایمیل تکراریست";
-                //ModelState.AddModelError("Email", "");
-                return View(register);
-            }
-            if (register.RePassword == register.Password)
-            {
-                User user = new User()
+                if (!ModelState.IsValid)
                 {
-                    AcctiveCode = NameGenerator.GenerateUniqueCode(),
-                    Email = register.Email,
-                    Password = PasswordHelper.EncodePasswordMd5(register.Password),
-                    UserName = register.Username,
-                    RegistersDate = DateTime.Now,
-                    UserAvatar = "defaultavatar.jpg",
-                    IsActive = false,
+                    return View(register);
+                }
+                if (_userService.IsExistUserName(register.Username))
+                {
+                    ViewBag.User = "نام کاربری تکراریست";
+                    //ModelState.AddModelError("Username", "نام کاربری تکراریست");
+                    return View(register);
+                }
+                if (_userService.IsExistEmail(FixedText.FixEmail(register.Email)))
+                {
+                    ViewBag.email = "ایمیل تکراریست";
+                    //ModelState.AddModelError("Email", "");
+                    return View(register);
+                }
+                if (register.RePassword == register.Password)
+                {
+                    User user = new User()
+                    {
+                        AcctiveCode = NameGenerator.GenerateUniqueCode(),
+                        Email = register.Email,
+                        Password = PasswordHelper.EncodePasswordMd5(register.Password),
+                        UserName = register.Username,
+                        RegistersDate = DateTime.Now,
+                        UserAvatar = "defaultavatar.jpg",
+                        IsActive = false,
 
-                };
-                _userService.AddUser(user);
-                #region send activation email
-                string body = _viewRender.RenderToStringAsync("_ActiveEmail", user);
-                SendMail.SendAsync(user.Email, "فعالسازی", body);
-                #endregion
+                    };
+                    _userService.AddUser(user);
+                    #region send activation email
+                    string body = _viewRender.RenderToStringAsync("_ActiveEmail", user);
+                    SendMail.SendAsync(user.Email, "فعالسازی", body);
+                    #endregion
+                }
+                if (register.RePassword != register.Password)
+                {
+                    ViewBag.pass = "رمز های عبور باهم تطابقت ندارند";
+                    //ModelState.AddModelError("Email", "");
+                    return View(register);
+
+                }
+                return Redirect("/Account/ActiveAccount");
             }
-            if (register.RePassword != register.Password)
+            catch (Exception ex)
             {
-                ViewBag.pass = "رمز های عبور باهم تطابقت ندارند";
-                //ModelState.AddModelError("Email", "");
-                return View(register);
-
+                return BadRequest(ex.Message);
             }
-            return Redirect("ActiveAccount");
-
 
         }
-       
+
         #region ActiveAccount
         public IActionResult ActiveAccount(string id)
         {
-          
-             ViewBag.IsActive = _userService.ActiveAccount(id);
+            try {
+                ViewBag.IsActive = _userService.ActiveAccount(id);
                 return View();
-         
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
         #endregion
         #region forgotpassword
         [Route("ForgotPassword")]
         public IActionResult ForgotPassword()
         {
-            return View();
-
+            try
+            {
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
         [HttpPost]
         [Route("ForgotPassword")]
         public IActionResult ForgotPassword(ForgotPassword forgot)
-
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return View(forgot);
+                if (!ModelState.IsValid)
+                {
+                    return View(forgot);
+                }
+                string fixedemail = FixedText.FixEmail(forgot.Email);
+                User user = _userService.GetUserByEmail(fixedemail);
+                if (user == null)
+                {
+                    return View(forgot);
+                    ViewBag.email = "s";
+                }
+                string bodyemail = _viewRender.RenderToStringAsync("_forgotpassword", user);
+                SendMail.SendAsync(user.Email, "بازیابی کلمه عبور", bodyemail);
+                ViewBag.s = "s s";
+                return View();
             }
-            string fixedemail = FixedText.FixEmail(forgot.Email);
-            User user = _userService.GetUserByEmail(fixedemail);
-            if (user == null)
+            catch (Exception ex)
             {
-                return View(forgot);
-                ViewBag.email = "s";
+                return BadRequest(ex.Message);
             }
-            string bodyemail = _viewRender.RenderToStringAsync("_forgotpassword", user);
-            SendMail.SendAsync(user.Email, "بازیابی کلمه عبور", bodyemail);
-            ViewBag.s = "s s";
-            return View();
-           
         }
         #endregion
 
@@ -196,45 +251,51 @@ namespace TopLearnProject2022.Controllers
         [Route("ResetPassword")]
         public IActionResult ResetPassword(string id)
         {
-            return View(new ResetPassword()
+            try
             {
-                ActiveCode = id
-
-
-            });
-
-
-
+                return View(new ResetPassword()
+                {
+                    ActiveCode = id
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
         [Route("ResetPassword")]
         [HttpPost]
         public IActionResult ResetPassword(ResetPassword reset)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return View(reset);
+                if (!ModelState.IsValid)
+                {
+                    return View(reset);
 
+                }
+                User user = _userService.GetUserByActiveCode(reset.ActiveCode);
+                if (user == null)
+                {
+                    return NotFound();
+                }
+                if (reset.RePassword != reset.Password)
+                {
+                    ViewBag.pass = "رمز های عبور باهم تطابقت ندارند";
+                    //ModelState.AddModelError("Email", "");
+                    return View(reset);
+
+                }
+                string newpass = PasswordHelper.EncodePasswordMd5(reset.Password);
+                user.Password = newpass;
+                _userService.UpdateUser(user);
+                ViewBag.success = "sd";
+                return Redirect("/Login");
             }
-            User user = _userService.GetUserByActiveCode(reset.ActiveCode);
-            if (user == null)
+            catch (Exception ex)
             {
-                return NotFound();
-            }
-            if (reset.RePassword != reset.Password)
-            {
-                ViewBag.pass = "رمز های عبور باهم تطابقت ندارند";
-                //ModelState.AddModelError("Email", "");
-                return View(reset);
-
-            }
-            string newpass = PasswordHelper.EncodePasswordMd5(reset.Password);
-            user.Password = newpass;
-            _userService.UpdateUser(user);
-            ViewBag.success = "sd";
-            return Redirect("/Login");
-          
-           
-
+                return BadRequest(ex.Message);
+            }  
         }
         #endregion
     }

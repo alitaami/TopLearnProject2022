@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\TopLearnProject2022.props" />
+</Project>

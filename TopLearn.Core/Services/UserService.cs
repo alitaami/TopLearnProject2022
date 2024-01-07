@@ -110,6 +110,16 @@ namespace TopLearn.Core.Services
             return AddToWallet(w);
         }
 
+        public bool CheckUserRole(string username)
+        {
+            int userId = GetUserIdByUserName(username);
+
+            var check = _Context.UserRoles
+                .Any(r => r.UserID == userId && r.RoleID == 1 && r.RoleID == 2 && r.RoleID == 4);
+
+            return check;
+        }
+
         public bool CompareOldPass(string username, string oldpassword)
         {
             string hashold = PasswordHelper.EncodePasswordMd5(oldpassword);
