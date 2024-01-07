@@ -137,7 +137,7 @@ namespace TopLearnProject2022.Controllers
         }
         [HttpPost]
         [Route("Register")]
-        public IActionResult Register(RegisterViewModel register)
+        public async Task<IActionResult> Register(RegisterViewModel register)
         {
             try
             {
@@ -145,52 +145,51 @@ namespace TopLearnProject2022.Controllers
                 {
                     return View(register);
                 }
+
                 if (_userService.IsExistUserName(register.Username))
                 {
                     ViewBag.User = "نام کاربری تکراریست";
-                    //ModelState.AddModelError("Username", "نام کاربری تکراریست");
                     return View(register);
                 }
+
                 if (_userService.IsExistEmail(FixedText.FixEmail(register.Email)))
                 {
                     ViewBag.email = "ایمیل تکراریست";
-                    //ModelState.AddModelError("Email", "");
                     return View(register);
                 }
-                if (register.RePassword == register.Password)
-                {
-                    User user = new User()
-                    {
-                        AcctiveCode = NameGenerator.GenerateUniqueCode(),
-                        Email = register.Email,
-                        Password = PasswordHelper.EncodePasswordMd5(register.Password),
-                        UserName = register.Username,
-                        RegistersDate = DateTime.Now,
-                        UserAvatar = "defaultavatar.jpg",
-                        IsActive = false,
 
-                    };
-                    _userService.AddUser(user);
-                    #region send activation email
-                    string body = _viewRender.RenderToStringAsync("_ActiveEmail", user);
-                    SendMail.SendAsync(user.Email, "فعالسازی", body);
-                    #endregion
-                }
                 if (register.RePassword != register.Password)
                 {
                     ViewBag.pass = "رمز های عبور باهم تطابقت ندارند";
-                    //ModelState.AddModelError("Email", "");
                     return View(register);
-
                 }
+
+                User user = new User()
+                {
+                    AcctiveCode = NameGenerator.GenerateUniqueCode(),
+                    Email = register.Email,
+                    Password = PasswordHelper.EncodePasswordMd5(register.Password),
+                    UserName = register.Username,
+                    RegistersDate = DateTime.Now,
+                    UserAvatar = "defaultavatar.jpg",
+                    IsActive = false,
+                };
+
+                _userService.AddUser(user);
+
+                #region send activation email
+                string body =  _viewRender.RenderToStringAsync("_ActiveEmail", user);
+                await SendMail.SendAsync(user.Email, "فعالسازی", body);
+                #endregion
+
                 return Redirect("/Account/ActiveAccount");
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-
         }
+
 
         #region ActiveAccount
         public IActionResult ActiveAccount(string id)

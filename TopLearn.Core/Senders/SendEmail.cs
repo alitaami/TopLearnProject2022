@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Toplearn.Core.Senders
 {
     public class SendMail
     {
-        public static void SendAsync(string to, string subject, string body)
+        public static async Task SendAsync(string to, string subject, string body)
         {
             using (MailMessage mail = new MailMessage())
             {
@@ -25,13 +23,15 @@ namespace Toplearn.Core.Senders
                     smtpServer.Port = 587;
                     smtpServer.Credentials = new NetworkCredential("prozheali@gmail.com", "ayszpqnyevqvbujn");
                     smtpServer.EnableSsl = true;
+
                     try
                     {
-                        smtpServer.SendMailAsync(mail);
+                        await smtpServer.SendMailAsync(mail);
                     }
                     catch (Exception ex)
                     {
-                        throw;
+                        // Handle or log the exception
+                        throw new InvalidOperationException("Failed to send email.", ex);
                     }
                 }
             }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using TopLearn.Core.DTOs.Order;
 using TopLearn.Core.Services.Interfaces;
 using TopLearn.DataLayer.Entities.Order;
+using TopLearnProject2022.Controllers;
 
 namespace TopLearnProject2022.Areas.UserPanel.Controllers
 {
@@ -48,18 +49,22 @@ namespace TopLearnProject2022.Areas.UserPanel.Controllers
             ViewBag.type = type;
             return View(order);
         }
-        public IActionResult ShowOrder2( bool finaly = false,string type="")
+        public IActionResult ShowOrder2(bool finaly = false, string type = "")
         {
             var order = _orderService.getOrderForUSerPanel(User.Identity.Name);
 
             if (order == null)
             {
-                return NotFound();
+                return NotFound("سبد خریدی برای این کاربر وجود ندارد");
+            //    ViewBag.NoOrder = "سبد خریدی برای این کاربر وجود ندارد";
+            //    return RedirectToAction("Index", "Home", new { area = "" });
             }
+
             ViewBag.finaly = finaly;
             ViewBag.type = type;
             return View(order);
         }
+
         public IActionResult FinalyOrder(int id)
         {
             if (_orderService.FinalyOrder(User.Identity.Name, id))
