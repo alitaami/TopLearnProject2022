@@ -85,7 +85,11 @@ namespace TopLearnProject2022.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
+        [Route("/info")]
+        public IActionResult Info()
+        {
+            return View();
+        } 
         public IActionResult GetSubGroups(int id)
         {
             try
