@@ -1,5 +1,114 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "_Layout";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Philbert I Fast build Admin dashboard for any platform</title>
+    <meta name="description" content="Philbert is a داشبورد & Admin Site Responsive Template by hencework." />
+    <meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Philbert Admin, Philbertadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
+    <meta name="author" content="hencework" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Morris Charts CSS -->
+    <link href="/vendors/bower_components/morris.js/morris.css" rel="stylesheet" type="text/css" />
+
+    <!-- vector map CSS -->
+    <link href="/vendors/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" type="text/css" />
+
+    <!-- Calendar CSS -->
+    <link href="/vendors/bower_components/fullcalendar/dist/fullcalendar.css" rel="stylesheet" type="text/css" />
+
+    <!-- Data table CSS -->
+    <link href="/vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom CSS -->
+    <link href="/dist/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- Right Sidebar Backdrop -->
+    <div class="right-sidebar-backdrop"></div>
+    <!-- /Right Sidebar Backdrop -->
+    <!-- Main Content -->
+    <div class="container-fluid">
+
+        <!-- Title -->
+        <div class="row heading-bg">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="txt-dark">درباره ما</h4>
+            </div>
+        </div>
+        <!-- /Title -->
+        <!-- Row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default card-view">
+                    <div class="panel-wrapper collapse in">
+                        <div class="panel-body pa-15">
+                            <div class="panel-group accordion-struct" role="tablist" aria-multiselectable="true">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingSix">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">   هدف از تاسیس CourseStore</a>
+                                    </div>
+                                    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+                                        <div class="panel-body pa-15"> این پلتفرم  کاملا متفاوت در زمینه یادگیری و آموزش بوده تا بتواند برای کسب و کار , توسعه و نگهداری نرم افزار , فن آوری های جدید و مهارت های خلاقانه ای که شما به دنبال آن هستید به صورت حرفه ای  آموزش ببینید.  </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingSeven">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">ورود به بازار کار</a>
+                                    </div>
+                                    <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+                                        <div class="panel-body pa-15">  بسیاری از فارغ التحصیلان برای ورود به بازار پر رقابت کار در ایران نیاز به یادگیری مهارت های لازم دارند . یکی از بزرگترین چالش ها هزینه های آموزشی هست .این پلتفرم با قرار دادن بیش از 100 ها آموزش رایگان  با اساتید حرفه ای ,  شیوه آموزشی نوین و قرار دادن دوره های مناسب برای ورود به بازار کسب و کار و البته ارائه گواهی معتبر جهت ارائه , را فراهم نموده است. </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="headingEight">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">ارتباط با ما</a>
+                                    </div>
+                                    <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+                                        <div class="panel-body pa-15">   در صورتی که سابقه تدریس دارید و یا علاقمند به تدریس در این پلتفرم هستید؛ می توانید جهت کسب اطلاعات بیشتر در خصوص شرایط همکاری با ما، با شماره تماس زیر تماس حاصل کنید. </div>
+                                        <mark style="background-color:dodgerblue;">      989033093041+  </mark>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Row --> 
+    </div>
+    <!-- /Footer -->
+    <!-- /Main Content -->
+    <!-- /#wrapper -->
+    <!-- JavaScript -->
+    <!-- jQuery -->
+    <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Slimscroll JavaScript -->
+    <script src="dist/js/jquery.slimscroll.js"></script>
+
+    <!-- Fancy Dropdown JS -->
+    <script src="dist/js/dropdown-bootstrap-extended.js"></script>
+
+    <!-- Owl JavaScript -->
+    <script src="vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+
+    <!-- Switchery JavaScript -->
+    <script src="vendors/bower_components/switchery/dist/switchery.min.js"></script>
+
+    <!-- Init JavaScript -->
+    <script src="dist/js/init.js"></script>
+
+</body>
+</html>

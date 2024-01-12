@@ -56,7 +56,7 @@
             <div id="mobile_only_nav" class="mobile-only-nav pull-right">
                 <ul class="nav navbar-right top-nav pull-right">
                     <li class="dropdown app-drp">
-                        <a href="javascript:void(0);" class="dropdown-toggle" id="infoDropdownButton"><i class="zmdi zmdi-info top-nav-icon"></i></a>
+                        <a href="/info" title="درباره ما" class="dropdown-toggle" id="infoDropdownButton"><i style="color:white" class="zmdi zmdi-info top-nav-icon"></i></a>
                         <ul class="dropdown-menu app-dropdown" data-dropdown-in="slideInRight" data-dropdown-out="flipOutX" style="max-height: 80px; overflow-y: hidden;">
                             <li>
                                 <div class="app-nicescroll-bar">
@@ -71,12 +71,11 @@
                                 </div>
                             </li>
                         </ul>
-                    </li>
-
+                    </li> 
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li class="dropdown auth-drp">
-                            <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="/UserAvatar/@user.UserAvatar" alt="@user.UserName" class="user-auth-img img-circle" /><span class="user-online-status"></span></a>
+                            <a class="dropdown-toggle pr-0" title="پروفایل" data-toggle="dropdown"><img src="/UserAvatar/@user.UserAvatar" alt="@user.UserName" class="user-auth-img img-circle" /><span class="user-online-status"></span></a>
                             <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
                                 <li>
                                     <a href="profile.html"><i class="zmdi zmdi-account"></i><span>@User.Identity.Name</span></a>
@@ -85,7 +84,7 @@
                                     <a asp-area="UserPanel" asp-controller="Home" asp-action="Index"><i class="zmdi zmdi-accounts-list"></i><span>پنل کاربری</span></a>
                                 </li>
                                 <li>
-                                    <a asp-area="UserPanel" asp-controller="MyOrders" asp-action="ShowOrder2"><i class="zmdi zmdi-cart"></i><span>سبد خرید</span></a>
+                                    <a asp-area="UserPanel" asp-controller="MyOrders" asp-action="ShowOrder2"><i class="zmdi zmdi-shopping-cart"></i><span>سبد خرید</span></a>
                                 </li>
                                 <li>
                                     <a asp-controller="Account" asp-action="Logout"><i class="zmdi zmdi-power"></i><span>خروج</span></a>
@@ -162,14 +161,7 @@
     <!-- Init JavaScript -->
     <script src="/dist/js/init.js"></script>
     <script src="/dist/js/dashboard6-data.js"></script>
-
-    <script>
-        document.getElementById('infoDropdownButton').addEventListener('click', function () {
-            // Redirect to your desired view
-            window.location.href = '/info';
-        });
-    </script>
-
+     
     @RenderSection("Scripts", required: false)
 </body>
 
