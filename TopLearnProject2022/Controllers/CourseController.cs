@@ -57,6 +57,12 @@ namespace TopLearnProject2022.Controllers
             try
             {
                 int orderId = _order.AddOrder(User.Identity.Name, id);
+
+                if (orderId is 0)
+                {
+                    return Redirect("/UserPanel/MyOrders/ShowOrder2/" + 0);
+                }
+
                 return Redirect("/UserPanel/MyOrders/ShowOrder/" + orderId);
             }
             catch (Exception ex)

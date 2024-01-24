@@ -235,9 +235,11 @@ namespace TopLearn.Core.Services
             return _context.CourseComments.Where(u => !u.IsDelete && u.CourseId == courseId).Include(u => u.Course).Include(u => u.User).ToList();
         }
 
-        public List<ShowCourseForAdminViewModel> getCourseForAdmin()
+        public List<ShowCourseForAdminViewModel> GetCourseForTeacher(string userName)
         {
-            return _context.Courses.Select(c => new ShowCourseForAdminViewModel()
+            int userId = _context.Users.Where(u=> u.UserName==userName).FirstOrDefault().UserId;
+            
+            return _context.Courses.Where(x=>x.TeacherId == userId).Select(c => new ShowCourseForAdminViewModel()
             {
                 CourseId = c.CourseId,
                 Title = c.CourseTitle,
@@ -277,7 +279,7 @@ namespace TopLearn.Core.Services
 
         }
 
-        public List<SelectListItem> getLevels()
+        public List<SelectListItem> getStatues()
         {
             return _context.CourseStatuses.Select(s => new SelectListItem()
             {
@@ -309,7 +311,7 @@ namespace TopLearn.Core.Services
         
     }
 
-        public List<SelectListItem> getStatues()
+        public List<SelectListItem> getLevels()
         {
             return _context.CourseLevels.Select(l => new SelectListItem()
             {

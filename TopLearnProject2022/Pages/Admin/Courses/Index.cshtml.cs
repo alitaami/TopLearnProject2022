@@ -20,7 +20,8 @@ namespace TopLearnProject2022.Pages.Admin.Courses
         public List<TopLearn.Core.DTOs.Course.ShowCourseForAdminViewModel> ListCourse { get; set; }
         public void OnGet()
         {
-            ListCourse = _course.getCourseForAdmin();
+            var name = User.Identity.Name;
+            ListCourse = _course.GetCourseForTeacher(name);
         }
     }
 }

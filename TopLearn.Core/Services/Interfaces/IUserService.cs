@@ -33,6 +33,7 @@ namespace TopLearn.Core.Services.Interfaces
         int AddToWallet(Wallet  w);
         Wallet GetWalletByWalletId(int walletid);
         void UpdateWallet(Wallet w);
+        bool IsValid(int userId);
 
          #region admin panel
 

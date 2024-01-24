@@ -41,7 +41,13 @@ namespace TopLearn.Core.Services
 
         public int AddOrder(string userName, int courseId)
         {
+          
             int userId = _User.GetUserIdByUserName(userName);
+
+            bool isValid = _User.IsValid(userId);
+
+            if(!isValid)
+                return 0;
 
             Order order = _Context.Orders.FirstOrDefault(o => o.UserId == userId && !o.IsFinaly);
 
@@ -138,9 +144,7 @@ namespace TopLearn.Core.Services
                 }
                 _Context.SaveChanges();
             }
-        }
-
-
+        }  
         public bool FinalyOrder(string username, int Orderid)
         {
             int userId = _User.GetUserIdByUserName(username);

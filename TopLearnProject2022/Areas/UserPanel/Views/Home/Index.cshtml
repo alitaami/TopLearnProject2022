@@ -20,6 +20,10 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+ 
+    <!-- Include Toastr CSS and JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <!-- Morris Charts CSS -->
     <link href="/vendors/bower_components/morris.js/morris.css" rel="stylesheet" type="text/css" />
@@ -61,7 +65,7 @@
                                     <a asp-area="UserPanel" asp-controller="Home" asp-action="ChangePassword" class="btn btn-default btn-block btn-outline btn-anim mt-15"><i class="fa fa-pencil"></i><span class="btn-text">ویرایش رمز کاربری</span></a>
                                     <a asp-area="UserPanel" asp-controller="Home" asp-action="EditProfile" class="btn btn-default btn-block btn-outline btn-anim mt-15"><i class="fa fa-pencil"></i><span class="btn-text">ویرایش اطلاعات</span></a>
                                     <a asp-area="UserPanel" asp-controller="Wallet" asp-action="Index" class="btn btn-default btn-block btn-outline btn-anim mt-15"><i class="fa fa-pencil"></i><span class="btn-text">افزایش موجودی کیف پول</span></a>
-                                    <a href="/UserPanel/MyOrders"  class="btn btn-default btn-block btn-outline btn-anim mt-15"><i class="fa fa-pencil"></i><span class="btn-text">فاکتورها </span></a>
+                                    <a href="/UserPanel/MyOrders" class="btn btn-default btn-block btn-outline btn-anim mt-15"><i class="fa fa-pencil"></i><span class="btn-text">فاکتورها </span></a>
                                     <a asp-area="UserPanel" asp-controller="MyOrders" asp-action="UserCourses" class="btn btn-default btn-block btn-outline btn-anim mt-15"><i class="fa fa-pencil"></i><span class="btn-text">دوره های خریداری شده</span></a>
                                     <div id="myModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
@@ -96,96 +100,96 @@
                             <div class="tab-struct custom-tab-1">
                                 <ul role="tablist" class="nav nav-tabs nav-tabs-responsive" id="myTabs_8">
                                     @*<li class="active" role="presentation"><a data-toggle="tab" id="profile_tab_8" role="tab" href="#profile_8" aria-expanded="false"><span>profile</span></a></li>
-                                        <li role="presentation" class="next"><a aria-expanded="true" data-toggle="tab" role="tab" id="follo_tab_8" href="#follo_8"><span>followers<span class="inline-block">(246)</span></span></a></li>
-                                        <li role="presentation" class=""><a data-toggle="tab" id="photos_tab_8" role="tab" href="#photos_8" aria-expanded="false"><span>photos</span></a></li>
-                                        <li role="presentation" class=""><a data-toggle="tab" id="earning_tab_8" role="tab" href="#earnings_8" aria-expanded="false"><span>earnings</span></a></li>*@
+                                    <li role="presentation" class="next"><a aria-expanded="true" data-toggle="tab" role="tab" id="follo_tab_8" href="#follo_8"><span>followers<span class="inline-block">(246)</span></span></a></li>
+                                    <li role="presentation" class=""><a data-toggle="tab" id="photos_tab_8" role="tab" href="#photos_8" aria-expanded="false"><span>photos</span></a></li>
+                                    <li role="presentation" class=""><a data-toggle="tab" id="earning_tab_8" role="tab" href="#earnings_8" aria-expanded="false"><span>earnings</span></a></li>*@
                                     <li role="presentation" class=""><a data-toggle="tab" id="settings_tab_8" role="tab" href="#settings_8" aria-expanded="false"><span>اطلاعات کاربر</span></a></li>
                                     @*<li class="dropdown" role="presentation">
-                                            <a data-toggle="dropdown" class="dropdown-toggle" id="myTabDrop_7" href="#" aria-expanded="false"><span>More</span> <span class="caret"></span></a>
-                                            <ul id="myTabDrop_7_contents" class="dropdown-menu">
-                                                <li class=""><a data-toggle="tab" id="dropdown_13_tab" role="tab" href="#dropdown_13" aria-expanded="true">About</a></li>
-                                                <li class=""><a data-toggle="tab" id="dropdown_14_tab" role="tab" href="#dropdown_14" aria-expanded="false">Followings</a></li>
-                                                <li class=""><a data-toggle="tab" id="dropdown_15_tab" role="tab" href="#dropdown_15" aria-expanded="false">Likes</a></li>
-                                                <li class=""><a data-toggle="tab" id="dropdown_16_tab" role="tab" href="#dropdown_16" aria-expanded="false">Reviews</a></li>
-                                            </ul>
-                                        </li>*@
+                                    <a data-toggle="dropdown" class="dropdown-toggle" id="myTabDrop_7" href="#" aria-expanded="false"><span>More</span> <span class="caret"></span></a>
+                                    <ul id="myTabDrop_7_contents" class="dropdown-menu">
+                                    <li class=""><a data-toggle="tab" id="dropdown_13_tab" role="tab" href="#dropdown_13" aria-expanded="true">About</a></li>
+                                    <li class=""><a data-toggle="tab" id="dropdown_14_tab" role="tab" href="#dropdown_14" aria-expanded="false">Followings</a></li>
+                                    <li class=""><a data-toggle="tab" id="dropdown_15_tab" role="tab" href="#dropdown_15" aria-expanded="false">Likes</a></li>
+                                    <li class=""><a data-toggle="tab" id="dropdown_16_tab" role="tab" href="#dropdown_16" aria-expanded="false">Reviews</a></li>
+                                    </ul>
+                                    </li>*@
                                 </ul>
                                 <div class="tab-content" id="myTabContent_8">
                                     <div id="profile_8" class="tab-pane fade active in" role="tabpanel">
                                         <div class="col-md-12">
                                             <div class="pt-20">
                                                 @*<div class="streamline user-activity">
-                                                        <div class="sl-item">
-                                                            <a href="javascript:void(0)">
-                                                                <div class="sl-avatar avatar avatar-sm avatar-circle">
-                                                                    <img class="img-responsive img-circle" src="dist/img/user.png" alt="avatar" />
-                                                                </div>
-                                                                <div class="sl-content">
-                                                                    <p class="inline-block"><span class="capitalize-font txt-success mr-5 weight-500">امین صفرپور</span><span>invited to join the meeting in the conference room at 9.45 am</span></p>
-                                                                    <span class="block txt-grey font-12 capitalize-font">3 Min</span>
-                                                                </div>
-                                                            </a>
-                                                        </div>
+                                                <div class="sl-item">
+                                                <a href="javascript:void(0)">
+                                                <div class="sl-avatar avatar avatar-sm avatar-circle">
+                                                <img class="img-responsive img-circle" src="dist/img/user.png" alt="avatar" />
+                                                </div>
+                                                <div class="sl-content">
+                                                <p class="inline-block"><span class="capitalize-font txt-success mr-5 weight-500">امین صفرپور</span><span>invited to join the meeting in the conference room at 9.45 am</span></p>
+                                                <span class="block txt-grey font-12 capitalize-font">3 Min</span>
+                                                </div>
+                                                </a>
+                                                </div>
 
-                                                        <div class="sl-item">
-                                                            <a href="javascript:void(0)">
-                                                                <div class="sl-avatar avatar avatar-sm avatar-circle">
-                                                                    <img class="img-responsive img-circle" src="dist/img/user1.png" alt="avatar" />
-                                                                </div>
-                                                                <div class="sl-content">
-                                                                    <p class="inline-block"><span class="capitalize-font txt-success mr-5 weight-500">امین صفرپور</span><span>added three new photos in the library</span></p>
-                                                                    <div class="activity-thumbnail">
-                                                                        <img src="dist/img/thumb-1.jpg" alt="thumbnail" />
-                                                                        <img src="dist/img/thumb-2.jpg" alt="thumbnail" />
-                                                                        <img src="dist/img/thumb-3.jpg" alt="thumbnail" />
-                                                                    </div>
-                                                                    <span class="block txt-grey font-12 capitalize-font">8 Min</span>
-                                                                </div>
-                                                            </a>
-                                                        </div>
+                                                <div class="sl-item">
+                                                <a href="javascript:void(0)">
+                                                <div class="sl-avatar avatar avatar-sm avatar-circle">
+                                                <img class="img-responsive img-circle" src="dist/img/user1.png" alt="avatar" />
+                                                </div>
+                                                <div class="sl-content">
+                                                <p class="inline-block"><span class="capitalize-font txt-success mr-5 weight-500">امین صفرپور</span><span>added three new photos in the library</span></p>
+                                                <div class="activity-thumbnail">
+                                                <img src="dist/img/thumb-1.jpg" alt="thumbnail" />
+                                                <img src="dist/img/thumb-2.jpg" alt="thumbnail" />
+                                                <img src="dist/img/thumb-3.jpg" alt="thumbnail" />
+                                                </div>
+                                                <span class="block txt-grey font-12 capitalize-font">8 Min</span>
+                                                </div>
+                                                </a>
+                                                </div>
 
-                                                        <div class="sl-item">
-                                                            <a href="javascript:void(0)">
-                                                                <div class="sl-avatar avatar avatar-sm avatar-circle">
-                                                                    <img class="img-responsive img-circle" src="dist/img/user2.png" alt="avatar" />
-                                                                </div>
-                                                                <div class="sl-content">
-                                                                    <p class="inline-block"><span class="capitalize-font txt-success mr-5 weight-500">madalyn rascon</span><span>assigned a new task</span></p>
-                                                                    <span class="block txt-grey font-12 capitalize-font">28 Min</span>
-                                                                </div>
-                                                            </a>
-                                                        </div>
+                                                <div class="sl-item">
+                                                <a href="javascript:void(0)">
+                                                <div class="sl-avatar avatar avatar-sm avatar-circle">
+                                                <img class="img-responsive img-circle" src="dist/img/user2.png" alt="avatar" />
+                                                </div>
+                                                <div class="sl-content">
+                                                <p class="inline-block"><span class="capitalize-font txt-success mr-5 weight-500">madalyn rascon</span><span>assigned a new task</span></p>
+                                                <span class="block txt-grey font-12 capitalize-font">28 Min</span>
+                                                </div>
+                                                </a>
+                                                </div>
 
-                                                        <div class="sl-item">
-                                                            <a href="javascript:void(0)">
-                                                                <div class="sl-avatar avatar avatar-sm avatar-circle">
-                                                                    <img class="img-responsive img-circle" src="dist/img/user3.png" alt="avatar" />
-                                                                </div>
-                                                                <div class="sl-content">
-                                                                    <p class="inline-block"><span class="capitalize-font txt-success mr-5 weight-500">امین صفرپور</span><span>completed project wireframes</span></p>
-                                                                    <span class="block txt-grey font-12 capitalize-font">yesterday</span>
-                                                                </div>
-                                                            </a>
-                                                        </div>
+                                                <div class="sl-item">
+                                                <a href="javascript:void(0)">
+                                                <div class="sl-avatar avatar avatar-sm avatar-circle">
+                                                <img class="img-responsive img-circle" src="dist/img/user3.png" alt="avatar" />
+                                                </div>
+                                                <div class="sl-content">
+                                                <p class="inline-block"><span class="capitalize-font txt-success mr-5 weight-500">امین صفرپور</span><span>completed project wireframes</span></p>
+                                                <span class="block txt-grey font-12 capitalize-font">yesterday</span>
+                                                </div>
+                                                </a>
+                                                </div>
 
-                                                        <div class="sl-item">
-                                                            <a href="javascript:void(0)">
-                                                                <div class="sl-avatar avatar avatar-sm avatar-circle">
-                                                                    <img class="img-responsive img-circle" src="dist/img/user4.png" alt="avatar" />
-                                                                </div>
-                                                                <div class="sl-content">
-                                                                    <p class="inline-block"><span class="capitalize-font txt-success mr-5 weight-500">jonnie metoyer</span><span>created a group 'ملت وب' in the discussion forum</span></p>
-                                                                    <span class="block txt-grey font-12 capitalize-font">18 feb</span>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>*@
+                                                <div class="sl-item">
+                                                <a href="javascript:void(0)">
+                                                <div class="sl-avatar avatar avatar-sm avatar-circle">
+                                                <img class="img-responsive img-circle" src="dist/img/user4.png" alt="avatar" />
+                                                </div>
+                                                <div class="sl-content">
+                                                <p class="inline-block"><span class="capitalize-font txt-success mr-5 weight-500">jonnie metoyer</span><span>created a group 'ملت وب' in the discussion forum</span></p>
+                                                <span class="block txt-grey font-12 capitalize-font">18 feb</span>
+                                                </div>
+                                                </a>
+                                                </div>
+                                                </div>*@
                                             </div>
                                         </div>
                                     </div>
- 
-                             
-                                 
+
+
+
                                     @*<div id="settings_8" class="tab-pane fade" role="tabpanel">*@
                                     <!-- Row -->
                                     <div class="row">
@@ -212,12 +216,12 @@
                                                                             </div>
                                                                         </div>
                                                                         @*<div class="form-group">
-                                                                                <label class="control-label mb-10" for="exampleInputContact_01">Contact number</label>
-                                                                                <div class="input-group">
-                                                                                    <div class="input-group-addon"><i class="icon-phone"></i></div>
-                                                                                    <input type="email" class="form-control" id="exampleInputContact_01" placeholder="+102 9388333">
-                                                                                </div>
-                                                                            </div>*@
+                                                                        <label class="control-label mb-10" for="exampleInputContact_01">Contact number</label>
+                                                                        <div class="input-group">
+                                                                        <div class="input-group-addon"><i class="icon-phone"></i></div>
+                                                                        <input type="email" class="form-control" id="exampleInputContact_01" placeholder="+102 9388333">
+                                                                        </div>
+                                                                        </div>*@
                                                                         <div class="form-group">
                                                                             <label class="control-label mb-10" for="exampleInputpwd_01">تاریخ ثبت نام</label>
                                                                             <div class="input-group">
@@ -233,35 +237,35 @@
                                                                             </div>
                                                                         </div>
                                                                         @*<div class="form-group">
-                                                                                <label class="control-label mb-10">Gender</label>
-                                                                                <div>
-                                                                                    <div class="radio">
-                                                                                        <input type="radio" name="radio1" id="radio_01" value="option1" checked="">
-                                                                                        <label for="radio_01">
-                                                                                            M
-                                                                                        </label>
-                                                                                    </div>
-                                                                                    <div class="radio">
-                                                                                        <input type="radio" name="radio1" id="radio_02" value="option2">
-                                                                                        <label for="radio_02">
-                                                                                            F
-                                                                                        </label>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>*@
+                                                                        <label class="control-label mb-10">Gender</label>
+                                                                        <div>
+                                                                        <div class="radio">
+                                                                        <input type="radio" name="radio1" id="radio_01" value="option1" checked="">
+                                                                        <label for="radio_01">
+                                                                        M
+                                                                        </label>
+                                                                        </div>
+                                                                        <div class="radio">
+                                                                        <input type="radio" name="radio1" id="radio_02" value="option2">
+                                                                        <label for="radio_02">
+                                                                        F
+                                                                        </label>
+                                                                        </div>
+                                                                        </div>
+                                                                        </div>*@
                                                                         @*<div class="form-group">
-                                                                                <label class="control-label mb-10">Country</label>
-                                                                                <select class="form-control" data-placeholder="Choose a Category" tabindex="1">
-                                                                                    <option value="Category 1">USA</option>
-                                                                                    <option value="Category 2">Austrailia</option>
-                                                                                    <option value="Category 3">India</option>
-                                                                                    <option value="Category 4">UK</option>
-                                                                                </select>
-                                                                            </div>*@
+                                                                        <label class="control-label mb-10">Country</label>
+                                                                        <select class="form-control" data-placeholder="Choose a Category" tabindex="1">
+                                                                        <option value="Category 1">USA</option>
+                                                                        <option value="Category 2">Austrailia</option>
+                                                                        <option value="Category 3">India</option>
+                                                                        <option value="Category 4">UK</option>
+                                                                        </select>
+                                                                        </div>*@
                                                                     </div>
                                                                     @*<div class="form-actions mt-10">
-                                                                            <button type="submit" class="btn btn-success mr-10 mb-30">Update profile</button>
-                                                                        </div>*@
+                                                                    <button type="submit" class="btn btn-success mr-10 mb-30">Update profile</button>
+                                                                    </div>*@
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -280,9 +284,7 @@
 
         </div>
     </div>
-
-    </div>
-
+     
     <!-- /Main Content -->
     <!-- jQuery -->
     <script src="/vendors/bower_components/jquery/dist/jquery.min.js"></script>

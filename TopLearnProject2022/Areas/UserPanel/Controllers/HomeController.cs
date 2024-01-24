@@ -61,12 +61,7 @@ namespace TopLearnProject2022.Areas.UserPanel.Controllers
             //if (user.IsActive == false)
             //{
             //    return View( );
-
-
-
-
-
-
+             
             //}
 
         }

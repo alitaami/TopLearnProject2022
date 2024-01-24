@@ -214,7 +214,7 @@ namespace TopLearn.Core.Services
         public USerForAdminViewModel GetDeletedUsers(int pageId = 1, string filteremail = "", string username = "")
         {
             //LazyLoad  بعد از فراخوانی در قسمت های بعدی سراغ دیتابیس میرود
-            IQueryable<User> Result = _Context.Users.Where(u=>u.IsDelete==true);
+            IQueryable<User> Result = _Context.Users.Where(u => u.IsDelete == true);
 
 
             if (!string.IsNullOrEmpty(filteremail))
@@ -311,7 +311,7 @@ namespace TopLearn.Core.Services
             {
                 Result = Result.Where(r => r.UserName.Contains(username));
             }
-            int take = 1;  //تعداد داده ها در هر صفحه
+            int take = 10;  //تعداد داده ها در هر صفحه
             int skip = (pageId - 1) * take;
             USerForAdminViewModel List = new USerForAdminViewModel();
             List.CurrentPage = pageId;
@@ -343,7 +343,7 @@ namespace TopLearn.Core.Services
             return _Context.Wallets.Find(walletid);
         }
 
-     
+
 
         public bool IsExistEmail(string email)
         {
@@ -353,6 +353,11 @@ namespace TopLearn.Core.Services
         public bool IsExistUserName(string username)
         {
             return _Context.Users.Any(a => a.UserName == username);
+        }
+
+        public bool IsValid(int userId)
+        {
+            return _Context.UserRoles.Any(u => u.UserID == userId && u.RoleID ==3);
         }
 
         public User LoginUser(LoginViewModel login)
