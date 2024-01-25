@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TPMsQzUNR2BbGXzz4Qh/VDoCjFZgtcnVj3YtqzXeFH2TxYlqJ+fkNxqVUr+VGNwz9REDbOAlVYpAmkgG3Z5AJA==",
+  "dgSpecHash": "wIop2laiHSgKpOFQi+mm1ibIu1a1/O8YOrNHrx/5Ezp4dvQt/HXImjFJpPNTbX0GLywpa7e7XYK2k4JNeBduhw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\TopLearnProject2022.csproj",
   "expectedPackageFiles": [
@@ -97,6 +97,7 @@
     "C:\\Users\\Sarv\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\Sarv\\.nuget\\packages\\microsoft.typescript.msbuild\\4.2.0\\microsoft.typescript.msbuild.4.2.0.nupkg.sha512",
     "C:\\Users\\Sarv\\.nuget\\packages\\microsoft.visualbasic\\10.0.1\\microsoft.visualbasic.10.0.1.nupkg.sha512",
+    "C:\\Users\\Sarv\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\Sarv\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\3.1.5\\microsoft.visualstudio.web.codegeneration.3.1.5.nupkg.sha512",
     "C:\\Users\\Sarv\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.contracts\\3.1.5\\microsoft.visualstudio.web.codegeneration.contracts.3.1.5.nupkg.sha512",
     "C:\\Users\\Sarv\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\3.1.5\\microsoft.visualstudio.web.codegeneration.core.3.1.5.nupkg.sha512",
