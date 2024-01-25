@@ -12,8 +12,8 @@
     <WebStackScaffolding_IsPartialViewSelected>False</WebStackScaffolding_IsPartialViewSelected>
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>False</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
     <WebStackScaffolding_LayoutPageFile />
-    <ActiveDebugProfile>Docker</ActiveDebugProfile>
-    <NameOfLastUsedPublishProfile>C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\Properties\PublishProfiles\FolderProfile.pubxml</NameOfLastUsedPublishProfile>
+    <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\Sarv\source\repos\TopLearnProject2022\TopLearnProject2022\Properties\PublishProfiles\FolderProfile2.pubxml</NameOfLastUsedPublishProfile>
     <ShowAllFiles>true</ShowAllFiles>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

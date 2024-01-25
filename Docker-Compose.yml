@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  toplearn:
+    build:
+      context: .
+      dockerfile: TopLearnProject2022/Dockerfile
+    image: toplearn:latest
+    ports:
+      - "4000:80"
+    depends_on:
+      - sqlserver
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__a=Server=sqlserver;Database=ToplearnDb;User=sa;Password=Ali1234567;TrustServerCertificate=true;
+    restart: always
+
+  sqlserver:
+    build:
+      context: .
+      dockerfile: TopLearnProject2022/Dockerfile
+    ports:
+      - "1433:1433"
+    restart: always
