@@ -52,19 +52,20 @@ namespace TopLearnProject2022.Areas.UserPanel.Controllers
         {
 
             var order = _orderService.getOrderForUSerPanel(User.Identity.Name);
-            if (userId is 0)
-            {
-                return NotFound("!تنها کاربران عادی میتوانند محصولات تعریف شده را تهیه کنند");
-                //ViewBag.NotValid = "Not Valid";
-            }
-            if (order == null)
+
+            if (order is null)
             {
                 return NotFound("سبد خریدی برای این کاربر وجود ندارد");
                 //    ViewBag.NoOrder = "سبد خریدی برای این کاربر وجود ندارد";
                 //    return RedirectToAction("Index", "Home", new { area = "" });
             }
-
-
+            if (userId is 0)
+            {
+                return NotFound("!تنها کاربران عادی میتوانند محصولات تعریف شده را تهیه کنند");
+                //ViewBag.NotValid = "Not Valid";
+            } 
+           
+           
             ViewBag.finaly = finaly;
             ViewBag.type = type;
             return View(order);

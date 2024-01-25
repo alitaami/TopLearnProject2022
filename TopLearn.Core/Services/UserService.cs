@@ -30,10 +30,15 @@ namespace TopLearn.Core.Services
 
             user.IsActive = true;
             user.AcctiveCode = TopLearn.Core.Generator.NameGenerator.GenerateUniqueCode();
+
+            _Context.UserRoles.Add(new UserRole
+            {
+                RoleID = 3,
+                UserID = user.UserId
+            });
+
             _Context.SaveChanges();
-            return true;
-
-
+            return true; 
         }
 
         public int AddToWallet(Wallet w)
@@ -357,7 +362,7 @@ namespace TopLearn.Core.Services
 
         public bool IsValid(int userId)
         {
-            return _Context.UserRoles.Any(u => u.UserID == userId && u.RoleID ==3);
+            return _Context.UserRoles.Any(u => u.UserID == userId && u.RoleID == 3);
         }
 
         public User LoginUser(LoginViewModel login)
