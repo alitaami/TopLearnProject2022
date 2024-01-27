@@ -4,6 +4,7 @@
     ViewData["Title"] = "Register";
 
 }
+@using TopLearn.Core.Convertors;
 
 <!DOCTYPE html>
 <html lang="en">
@@ -85,16 +86,16 @@
                                             <input asp-for="Username" class="form-control" />
 
                                         </div>
-                                        <div class="form-group">
+                                        <<div class="form-group">
                                             <label asp-for="Email" class="control-label">ایمیل</label>
-                                            <input asp-for="Email" class="form-control" />
-
+                                            <input asp-for="Email" class="form-control" pattern="@RegexPatterns.EmailPattern" title="قرمت ایمیل وارد شده صحیح نیست" />
                                         </div>
+
                                         <div class="form-group">
                                             <label asp-for="Password" class="control-label">رمزعبور</label>
-                                            <input type="password" asp-for="Password" class="form-control" />
-
+                                            <input asp-for="Password" type="password" class="form-control" pattern="@RegexPatterns.PasswordPattern" title="رمز عبور شما باید شامل کاراکتر های انگلیسی کوچک و بزرگ ، اعداد و کاراکتر های خاص باشد" />
                                         </div>
+
                                         <div class="form-group">
                                             <label class="control-label">تکرار رمزعبور</label>
                                             <input type="password" asp-for="RePassword" class="form-control" />

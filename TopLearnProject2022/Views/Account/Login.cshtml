@@ -5,6 +5,7 @@
 
     ViewData["Title"] = "Login";
 }
+@using TopLearn.Core.Convertors;
 
 
 <!DOCTYPE html>
@@ -128,7 +129,7 @@
                                         <form asp-controller="Account" asp-action="Login" method="post">
                                             <div class="form-group">
                                                 <label class="control-label mb-10" for="exampleInputEmail_2">ایمیل</label>
-                                                <input asp-for="Email" type="email" class="form-control" required="" id="exampleInputEmail_2">
+                                                <input asp-for="Email" type="email" class="form-control" required="" id="exampleInputEmail_2" pattern="@RegexPatterns.EmailPattern" title="قرمت ایمیل وارد شده صحیح نیست">
 
                                             </div>
                                             <div class="form-group">
