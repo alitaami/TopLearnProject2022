@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Z0nysQXk6G2Vahod6QNCDjSVl4SLe1s6vJKdVmRNWQc=",
+  "Hash": "nDNVB4xQuYbwM62UoUSCSdrQOnoPe8d52MCvrSOc5Xk=",
   "Source": "TopLearnProject2022",
   "BasePath": "_content/TopLearnProject2022",
   "Mode": "Default",
@@ -9384,6 +9384,23 @@
       "OriginalItemSpec": "wwwroot\\CourseFiles\\no-photos.png"
     },
     {
+      "Identity": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\wwwroot\\CourseFiles\\photo_2023-12-26_22-36-08.jpg",
+      "SourceId": "TopLearnProject2022",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\wwwroot\\",
+      "BasePath": "_content/TopLearnProject2022",
+      "RelativePath": "CourseFiles/photo_2023-12-26_22-36-08.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\CourseFiles\\photo_2023-12-26_22-36-08.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\wwwroot\\CourseFiles\\آموزش_جامع_django_celery.jpg",
       "SourceId": "TopLearnProject2022",
       "SourceType": "Discovered",
@@ -16354,6 +16371,23 @@
       "OriginalItemSpec": "wwwroot\\UserAvatar\\9049cc45150a4cffbe976df0f03cd746.jpg"
     },
     {
+      "Identity": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\wwwroot\\UserAvatar\\afe8806e818644d891797c60a8de8cac.jpg",
+      "SourceId": "TopLearnProject2022",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\wwwroot\\",
+      "BasePath": "_content/TopLearnProject2022",
+      "RelativePath": "UserAvatar/afe8806e818644d891797c60a8de8cac.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UserAvatar\\afe8806e818644d891797c60a8de8cac.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\wwwroot\\UserAvatar\\b85d14a4c1cf4d089c456d3e0026d598.cshtml",
       "SourceId": "TopLearnProject2022",
       "SourceType": "Discovered",
@@ -16386,23 +16420,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\UserAvatar\\c9c72f1b650747e98c827d63bb2bf9f4.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\wwwroot\\UserAvatar\\defaultavatar.jpg",
-      "SourceId": "TopLearnProject2022",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\wwwroot\\",
-      "BasePath": "_content/TopLearnProject2022",
-      "RelativePath": "UserAvatar/defaultavatar.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserAvatar\\defaultavatar.jpg"
     },
     {
       "Identity": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\wwwroot\\UserAvatar\\ec30f800ff174e6bbe2aa827447b8716.jpg",

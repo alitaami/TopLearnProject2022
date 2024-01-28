@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\CourseFiles\\no-photos.png"
     },
     {
+      "Id": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\wwwroot\\CourseFiles\\photo_2023-12-26_22-36-08.jpg",
+      "PackagePath": "staticwebassets\\CourseFiles\\photo_2023-12-26_22-36-08.jpg"
+    },
+    {
       "Id": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\wwwroot\\CourseFiles\\آموزش_جامع_django_celery.jpg",
       "PackagePath": "staticwebassets\\CourseFiles\\آموزش_جامع_django_celery.jpg"
     },
@@ -221,12 +225,12 @@
       "PackagePath": "staticwebassets\\UserAvatar\\9049cc45150a4cffbe976df0f03cd746.jpg"
     },
     {
-      "Id": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\wwwroot\\UserAvatar\\c9c72f1b650747e98c827d63bb2bf9f4.jpg",
-      "PackagePath": "staticwebassets\\UserAvatar\\c9c72f1b650747e98c827d63bb2bf9f4.jpg"
+      "Id": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\wwwroot\\UserAvatar\\afe8806e818644d891797c60a8de8cac.jpg",
+      "PackagePath": "staticwebassets\\UserAvatar\\afe8806e818644d891797c60a8de8cac.jpg"
     },
     {
-      "Id": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\wwwroot\\UserAvatar\\defaultavatar.jpg",
-      "PackagePath": "staticwebassets\\UserAvatar\\defaultavatar.jpg"
+      "Id": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\wwwroot\\UserAvatar\\c9c72f1b650747e98c827d63bb2bf9f4.jpg",
+      "PackagePath": "staticwebassets\\UserAvatar\\c9c72f1b650747e98c827d63bb2bf9f4.jpg"
     },
     {
       "Id": "C:\\Users\\Sarv\\source\\repos\\TopLearnProject2022\\TopLearnProject2022\\wwwroot\\UserAvatar\\ec30f800ff174e6bbe2aa827447b8716.jpg",
